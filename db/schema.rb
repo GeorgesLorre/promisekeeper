@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180326133025) do
+ActiveRecord::Schema.define(version: 20180326135316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "promises", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "condition"
+    t.string "status"
+    t.date "deadline"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_promises_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,4 +44,18 @@ ActiveRecord::Schema.define(version: 20180326133025) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "witnesses", force: :cascade do |t|
+    t.boolean "mark_done"
+    t.string "account_status"
+    t.bigint "user_id"
+    t.bigint "promise_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["promise_id"], name: "index_witnesses_on_promise_id"
+    t.index ["user_id"], name: "index_witnesses_on_user_id"
+  end
+
+  add_foreign_key "promises", "users"
+  add_foreign_key "witnesses", "promises"
+  add_foreign_key "witnesses", "users"
 end
