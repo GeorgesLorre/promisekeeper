@@ -1,4 +1,4 @@
 class Promise < ApplicationRecord
-  belongs_to :user, presence: true
-  has_many :witnesses, presence: true
+  belongs_to :user
+  has_many :witnesses, dependent: :destroy
 end
