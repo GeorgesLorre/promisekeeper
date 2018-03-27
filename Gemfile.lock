@@ -61,8 +61,12 @@ GEM
     erubi (1.7.1)
     eventmachine (1.2.5)
     execjs (2.7.0)
+    fb_login
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
+
+    faker (1.8.7)
+
     ffi (1.9.23)
     figaro (1.1.1)
       thor (~> 0.14)
@@ -215,6 +219,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass (~> 3.3)
   devise
+  faker
   figaro
   font-awesome-sass (~> 4.7)
   jbuilder (~> 2.0)
