@@ -4,12 +4,42 @@
     padding-bottom: 40px;
     font-family: $testimonials-title;
     font-size: 43px;
-    letter-spacing: -4px
+    letter-spacing: -4px;
   }
 }
 
 .testimonial {
-  li {
-    display: inline;
-  }
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  margin-top: 50px;
+}
+
+
+.content {
+  font-size: 16px;
+  font-weight: lighter;
+  color: #807C7C;
+  line-height: 1.4;
+  padding-left: 22px;
+}
+
+.testimony {
+  width: 100px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 100px;
+}
+
+.writer {
+  text-align: left;
+  line-height: 0.7;
+  font-size: 13px;
+}
+
+.avatar-bordered img {
+  width: 70px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
 }

@@ -6,7 +6,7 @@ Promise.destroy_all
 puts "seeding"
 
 10.times do
-  users = User.create!(email: Faker::Internet.email, password: Faker::Internet.password, avatar: Faker::Avatar.image("my-own-slug", "50x50", "jpg"))
+  users = User.create!(email: Faker::Internet.email, password: Faker::Internet.password, avatar: Faker::Avatar.image)
 end
 
 6.times do

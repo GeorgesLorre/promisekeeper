@@ -2,22 +2,21 @@
 <div class="testimonials-wrapper">
   <div class="container testimonial-container text-center">
     <h3 class="title-testimonials text-left">testimonials.</h2>
-    <div class="row">
-        <% @promises.each do |p|%>
-      <div class="col-xs-12 col-md-6 testimonial">
-      <ul>
-        <li>
-          <div class="testimonial-avatar">
-         <%= image_tag(p.user.avatar) %>
+      <div class="row">
+        <% @promises.sample(4).each do |p|%>
+        <div class="col-xs-12 col-md-6 testimonial">
+         <div class="avatar-bordered">
+           <%= image_tag(p.user.avatar) %>
          </div>
-
-        <div> <%= p.title  %> </div>
-        <div> <%= p.description %> </div>
-        <div> <%= p.witnesses.count %> </div>
-      </li>
-      </ul>
+         <div class="content">
+          <p class="testimony"><%= p.title %> </p>
+          <div class="writer">
+          <p> <strong> <%= p.description %> </strong></p>
+          <p> <%= Date.today.strftime("%b %d, %Y") %> </p>
+          </div>
+        </div>
       </div>
-<% end %>
+      <% end %>
     </div>
   </div>
 
