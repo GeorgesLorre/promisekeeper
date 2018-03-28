@@ -1,4 +1,3 @@
-
 <div class="testimonials-wrapper">
   <div class="container testimonial-container text-center">
     <h3 class="title-testimonials text-left">testimonials.</h2>
@@ -9,9 +8,14 @@
            <%= image_tag(p.user.avatar) %>
          </div>
          <div class="content">
-          <p class="testimony"><%= p.title %> </p>
+          <p class="testimony title-card" ><%= p.title %>
+  </p>
+<button class="btn-expand read-more">
+    Read more
+  </button>
+<br>
           <div class="writer">
-          <p> <strong> <%= p.description %> </strong></p>
+          <p> <%= p.description %> </p>
           <p> <%= Date.today.strftime("%b %d, %Y") %> </p>
           </div>
         </div>
@@ -19,5 +23,22 @@
       <% end %>
     </div>
   </div>
-
 </div>
+
+<script>
+  buttons  = document.getElementsByClassName("read-more");
+  for( let i = 0; i < buttons.length; i++)  {
+      buttons[i].addEventListener('mouseover', function(e) {
+          let parent = this.parentElement.getElementsByClassName("title-card")[0];
+          if (parent.classList.contains("testimony")){
+            parent.classList.remove("testimony");
+            this.innerHTML = "Close";
+          } else {
+            parent.classList.add("testimony");
+            this.innerHTML = "Read more";
+
+          }
+
+     } ) }  ;
+
+</script>
