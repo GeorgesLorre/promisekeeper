@@ -10,9 +10,9 @@
          <div class="content">
           <p class="testimony title-card" ><%= p.title %>
   </p>
-<button class="btn-expand read-more">
+<span class="btn-expand read-more">
     Read more
-  </button>
+  </span>
 <br>
           <div class="writer">
           <p> <%= p.description %> </p>
@@ -28,17 +28,23 @@
 <script>
   buttons  = document.getElementsByClassName("read-more");
   for( let i = 0; i < buttons.length; i++)  {
-      buttons[i].addEventListener('mouseover', function(e) {
+      buttons[i].addEventListener('click', function(e) {
           let parent = this.parentElement.getElementsByClassName("title-card")[0];
-          if (parent.classList.contains("testimony")){
-            parent.classList.remove("testimony");
-            this.innerHTML = "Close";
-          } else {
+          if (parent.classList.contains("testimony-expanded")){
+            this.innerHTML = "";
+            var but =  this;
+            parent.classList.remove("testimony-expanded");
             parent.classList.add("testimony");
-            this.innerHTML = "Read more";
+            setTimeout(function(){ but.innerHTML = "Read more"; }, 1300 );
+
+          } else {
+            this.innerHTML = "";
+            var but =  this;
+            parent.classList.remove("testimony");
+            parent.classList.add("testimony-expanded");
+            setTimeout(function(){ but.innerHTML = "Close"; }, 1300 );
 
           }
-
      } ) }  ;
 
 </script>
