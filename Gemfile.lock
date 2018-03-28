@@ -38,6 +38,8 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
     autoprefixer-rails (8.2.0)
       execjs
@@ -51,7 +53,6 @@ GEM
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
     crass (1.0.3)
-    daemons (1.2.6)
     devise (4.4.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -59,14 +60,10 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.7.1)
-    eventmachine (1.2.5)
     execjs (2.7.0)
-    fb_login
+    faker (1.8.7)
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
-
-    faker (1.8.7)
-
     ffi (1.9.23)
     figaro (1.1.1)
       thor (~> 0.14)
@@ -80,7 +77,12 @@ GEM
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    json (2.1.0)
     jwt (1.5.6)
+    koala (3.0.0)
+      addressable
+      faraday
+      json (>= 1.8)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -123,6 +125,7 @@ GEM
       pry (~> 0.10)
     pry-rails (0.3.6)
       pry (>= 0.10.4)
+    public_suffix (3.0.2)
     puma (3.11.3)
     rack (2.0.4)
     rack-proxy (0.6.4)
@@ -186,10 +189,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    thin (1.7.2)
-      daemons (~> 1.0, >= 1.0.9)
-      eventmachine (~> 1.0, >= 1.0.4)
-      rack (>= 1, < 3)
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
@@ -223,6 +222,7 @@ DEPENDENCIES
   figaro
   font-awesome-sass (~> 4.7)
   jbuilder (~> 2.0)
+  koala
   listen (~> 3.0.5)
   omniauth-facebook
   pg (~> 0.21)
@@ -235,7 +235,6 @@ DEPENDENCIES
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
-  thin
   uglifier
   web-console (>= 3.3.0)
   webpacker
