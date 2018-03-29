@@ -9,6 +9,7 @@ gem 'rails', '5.1.5'
 gem 'redis'
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'koala'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
@@ -29,4 +30,6 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'faker'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
