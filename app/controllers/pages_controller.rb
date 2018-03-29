@@ -1,8 +1,4 @@
 class PagesController < ApplicationController
-<<<<<<< HEAD
-  def home
-
-=======
   # def home
   #   @graph = Koala::Facebook::API.new(User.last.token)
   #   @profile = @graph.get_object("me")
@@ -16,6 +12,5 @@ class PagesController < ApplicationController
 
   def dashboard
     @promises = Promise.all
->>>>>>> c7c06d58fa40c86ec7c339ee4a924381b16eb869
   end
 end
