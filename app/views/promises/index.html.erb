@@ -110,3 +110,49 @@
 
 <%= render 'testimonials' %>
 
+
+<div class="container">
+
+
+  <h1>Create a promise</h1>
+
+
+  <%= simple_form_for @promise do |f| %>
+  <%=f.input :title  %>
+  <%=f.input :description %>
+  <%=f.input :deadline %>
+  <%=f.input :temp_witnesses, label: "Tag your witnesses",  collection: @taggable_friends.map { |f| f['name']}, as: :check_boxes %>
+  <%=f.button :submit %>
+  <% end %>
+
+
+  <h2>View all promises</h2>
+  <div class="row">
+    <% @promises.each do |p|%>
+    <div class="col-md-4">
+      <h4><%= p.title  %></h4>
+      <p><%= p.description %></p>
+      <p><%= p.deadline %></p>
+      <h5>Witnesses:</h5>
+      <ul>
+        <% p.witnesses.each do |w| %>
+        <li> <%= w.user.name %></li>
+        <% end %>
+      </ul>
+      <h5>Temp Witnesses:</h5>
+      <ul>
+        <% p.temp_witnesses.each do |w| %>
+        <li> <%= w.fullname %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+  </div>
+
+  <%= render 'testimonials' %>
+</div>
+
+
+
+
+

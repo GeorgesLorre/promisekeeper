@@ -7,10 +7,11 @@
 }
 
 .icons {
-  padding-top: 12px;
+  padding: 12px;
   display: flex;
   justify-content: space-between;
   color: #ECECEB;
+    position: relative;
 }
 
 .meg {
@@ -20,6 +21,7 @@
   border-radius: 5px;
   border: 3px solid gray;
 }
+
 .card-dashboard {
   padding: 50px;
   height: 300px;
@@ -39,3 +41,42 @@
   top: 2px;
   right: 2px;
 }
+
+
+.tag:hover {
+color: $tag;
+position: relative;
+}
+
+
+.check:hover {
+  color: $check;
+  position: relative;
+}
+
+.quit:hover {
+  color: $quit;
+  position: relative;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.icons:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+  }

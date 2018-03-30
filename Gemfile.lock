@@ -74,7 +74,7 @@ GEM
     ffi (1.9.23)
     figaro (1.1.1)
       thor (~> 0.14)
-    font-awesome-sass (4.7.0)
+    font-awesome-sass (5.0.6.2)
       sass (>= 3.2)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -90,6 +90,10 @@ GEM
       addressable
       faraday
       json (>= 1.8)
+    launchy (2.4.3)
+      addressable (~> 2.3)
+    letter_opener (1.6.0)
+      launchy (~> 2.2)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -134,6 +138,8 @@ GEM
       pry (>= 0.10.4)
     public_suffix (3.0.2)
     puma (3.11.3)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     rack (2.0.4)
     rack-proxy (0.6.4)
       rack
@@ -229,15 +235,17 @@ DEPENDENCIES
   devise
   faker
   figaro
-  font-awesome-sass (~> 4.7)
+  font-awesome-sass (~> 5.0.6)
   jbuilder (~> 2.0)
   koala
+  letter_opener
   listen (~> 3.0.5)
   omniauth-facebook
   pg (~> 0.21)
   pry-byebug
   pry-rails
   puma
+  pundit
   rails (= 5.1.5)
   redis
   sass-rails

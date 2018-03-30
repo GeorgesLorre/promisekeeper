@@ -1,6 +1,7 @@
 <h1>Ongoing Promises</h1>
 
 <div class="container">
+
   <div class="col-xs-7 meg">
   <%= @promises.first.description %>
 
@@ -13,18 +14,31 @@
     </div>
   </div>
 </div>
-<div class="col-xs-7 meg">
-  <%= @promises.first.description %>
 
-  <div class="promise-photo">
-    <%= image_tag "drunk.jpg", alt: "promise photo", class: "promise-photo text-center"%>
-    <div class="icons">
-      <i class="fa fa-child fa-2x"></i>
-      <i class="fa fa-check fa-2x"></i>
-      <i class="fa fa-couch fa-2x"></i>
+  <div class="col-xs-6 meg">
+    <%= @promises.first.description %>
+
+
+    <div class="promise-photo">
+      <%= image_tag "drunk.jpg", alt: "promise photo", class: "promise-photo text-center"%>
+      <div class="icons">
+        <div>
+          <i class="fa fa-child fa-2x tag"></i>
+          <span class="tooltiptext">Tag a friend</span>
+        </div>
+        <div>
+          <i class="fa fa-check fa-2x check"></i>
+          <span class="tooltiptext">Ask for aproval!</span>
+        </div>
+        <div>
+          <i class="far fa-frown fa-2x quit"></i>
+          <span class="tooltiptext">Disappoint yourself and others</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
 </div>
 <h1>Past Promises</h1>
 <div class="container-2">
