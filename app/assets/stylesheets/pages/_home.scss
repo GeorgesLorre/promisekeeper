@@ -189,6 +189,9 @@ img, media {
   background-position: center;
   color: white;
   position: relative;
+  opacity: 0.5;
+
+
   // transition: all 350ms;
 }
 .card-user {
@@ -229,18 +232,20 @@ img, media {
   opacity: 0;
 }
 .card:hover {
-  border: 2px solid lightgrey;
-  color: lightgrey;
-  text-shadow:
-  0.07em 0 black,
-  0 0.07em black,
-  -0.07em 0 black,
-  0 -0.07em black;
-  opacity: 0.9;
+
+  opacity: 1;
+  -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
 }
 .art{
   margin-top: 0px;
   height: 300vh;
   width:400vh;
+}
+.card-body {
+  min-height:200px;
 }
 

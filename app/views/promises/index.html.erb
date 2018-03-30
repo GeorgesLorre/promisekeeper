@@ -1,16 +1,13 @@
-<html>
 
-<head>
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
-  <script>
-    $(document).ready(function() {
-      $("#datepicker").datepicker();
-    });
-  </script>
-</head>
+<script>
+  $(document).ready(function() {
+    $("#datepicker").datepicker();
+  });
+</script>
 
 <div class="banner-home" style="background-image: url(<%= ['https://kep.index.hu/1/0/1844/18445/184451/18445143_1133435_b06e4281db6835eb9bf78381387ee44a_wm.jpg', 'https://wallpapercave.com/wp/EOAnbA2.jpg', 'http://cdn.revistadonna.clicrbs.com.br/wp-content/uploads/2015/06/favela.jpg', 'http://www.xacotrans.com/wp-content/uploads/2016/06/peregrino.jpg', 'https://images.onmogul.com/uploads/story/thumbnail/95935/275a22fc06.jpg?ixlib=rails-0.3.2&ch=Width%2CDPR&fit=crop&h=465&w=820&s=6edd39b4fb1dd3f7c18f59a6c464b4cf'].sample %>)">
 
@@ -23,130 +20,94 @@
   <div class="layer"></div>
   <div class="layer"></div>
   <div class="layer"></div>
-
-
-
-
 </div>
-<body>
-  <div class="form-index">
-    <form action="/action_page.php">
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li  data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li  data-target="#myCarousel" data-slide-to="1"></li>
-          <li  data-target="#myCarousel" data-slide-to="2"></li>
-          <li  data-target="#myCarousel" data-slide-to="3"></li>
-        </ol>
+<div class="form-index">
+  <form action="/action_page.php">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li  data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li  data-target="#myCarousel" data-slide-to="1"></li>
+        <li  data-target="#myCarousel" data-slide-to="2"></li>
+        <li  data-target="#myCarousel" data-slide-to="3"></li>
+      </ol>
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-          <div class="item active">
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item active">
 
-            Promise:<br>
-            <input type="text" name="promisename" value="I will start sports"><br>
-          </div>
-          <div class="item">
-            Deadline:<br>
-            <input id="datepicker" type="date" name="deadline" value=""><br>
+          Promise:<br>
+          <input type="text" name="promisename" value="I will start sports"><br>
+        </div>
+        <div class="item">
+          Deadline:<br>
+          <input id="datepicker" type="date" name="deadline" value=""><br>
 
+        </div>
+        <div class="item">
+          <form action="/action_page.php">
+            First Name:<br>
+            <input type="text" name="promisename"><br>
           </div>
           <div class="item">
             <form action="/action_page.php">
-              First Name:<br>
-              <input type="text" name="promisename"><br>
+              Last Name:<br>
+              <input type="text" name="promiselastname"><br>
             </div>
-            <div class="item">
-              <form action="/action_page.php">
-                Last Name:<br>
-                <input type="text" name="promiselastname"><br>
-              </div>
-            </div>
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-left"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-right"></span>
-              <span class="sr-only">Next</span>
-            </a>
           </div>
-          <a href="#myCarousel" data-slide="next">
-            <div class="button-home" type="submit" value="Submit">Submit
-
-            </div>
+          <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
           </a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+        <a href="#myCarousel" data-slide="next">
+          <div class="button-home" type="submit" value="Submit">Submit
+
+          </div>
+        </a>
 
 
-        </form>
-      </div>
-    </body>
+      </form>
   </div>
-  <div class="container">
 
-    <div class="cards">
-      <!-- Code your cards  here -->
-      <div class="card">
-        <div class="card-body" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 30%), url('images/shanghai.jpg');">
 
-          <div class="card-description">
-            <h2>Stop Smoking</h2>
-          </div>
-          <div>
-            <img class="card-avatar avatar avatar-large" src="images/pic.png">
-            <a class="card-link" href="#"></a>
-          </div>
+  <div class="cards">
+    <!-- Code your cards  here -->
+    <% @promises.sample(9).each do |p|%>
+    <div class="card col-xs-6 col-md-4">
+      <div class="card-body" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) ), url('https://images3.alphacoders.com/248/248885.jpg');">
+
+        <div class="card-description" style="margin-left: 15px;">
+         <h3> I will stop smoking </h3>
+       </div>
+       <div>
+        <img class="card-avatar avatar avatar-large" >
+        <div class="avatar-bordered" style="margin-left: 10px;">
+          <%= image_tag(p.user.avatar) %>
         </div>
-        <div class="card-footer">
-          <p>Cecilio Vega</p>
-          <div class="controls">
-            <a href="#"><i class="fa fa-star"></i></a>
-            <a href="#"><i class="fa fa-heart"></i></a>
-            <a href="#"><i class="fa fa-share"></i></a>
-          </div>
         </div>
-      </div>
-      <div class="card">
-        <div class="card-body" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 30%), url('https://i.ytimg.com/vi/ykq6arxROw4/hqdefault.jpg');">
-          <div class="card-category">
-          </div>
-          <div class="card-description">
-            <h2>Stop horse riding</h2>
-          </div>
-          <img class="card-avatar avatar avatar-large" src="images/cecile.png">
-          <a class="card-link" href="#"></a>
         </div>
-        <div class="card-footer">
-          <p>Clas stierna</p>
-          <div class="controls">
-            <a href="#"><i class="fa fa-star"></i></a>
-            <a href="#"><i class="fa fa-heart"></i></a>
-            <a href="#"><i class="fa fa-share"></i></a>
-          </div>
         </div>
-      </div>
-      <div class="card">
-        <div class="card-body" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 30%), url('https://i.ytimg.com/vi/ykq6arxROw4/hqdefault.jpg');">
-          <div class="card-category">Río</div>
-          <div class="card-description">
-            <h2>Win Hockey champ </h2>
-          </div>
-          <img class="card-avatar avatar avatar-large" src="images/gab.png">
-          <a class="card-link" href="#"></a>
+
+          <% end %>
         </div>
-        <div class="card-footer">
-          <p>Carlos Tanner</p>
-          <div class="controls">
-            <a href="#"><i class="fa fa-star"></i></a>
-            <a href="#"><i class="fa fa-heart"></i></a>
-            <a href="#"><i class="fa fa-share"></i></a>
-          </div>
-        </div>
+
+        <a class="card-link" href="#"></a>
       </div>
     </div>
+    <div class="card-footer">
+      <p style="color: #374261">p.description</p>
+      <div class="controls">
 
+      </div>
+    </div>
   </div>
+
+</div>
 
 
 <%= render 'testimonials' %>

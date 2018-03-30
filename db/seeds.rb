@@ -15,7 +15,7 @@ Promise.destroy_all
   users = User.create!(email: Faker::Internet.email, password: Faker::Internet.password, avatar: Faker::Avatar.image)
 end
 
-6.times do
+9.times do
   promises = Promise.new(title: Faker::Seinfeld.quote, description: Faker::Science.scientist, status: Faker::DragonBall.character, deadline: Faker::Date.forward(23))
   promises.user = User.order("random()").first
   promises.save
