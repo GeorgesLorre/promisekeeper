@@ -10,7 +10,7 @@ class User < ApplicationRecord
   after_create :user_is_witness
 
   def user_is_witness
-    checker = TempWitness.all.select{|w| self.first_name == w.fullname.split(" ").first && self.last_name == w.fullname.split(" ").last}.first
+    checker = TempWitness.all.select{|w| self.name == w.fullname}.first
     if !checker.nil? && self.facebook_friends.map{|f| f["id"]}.include?(checker.promise.user.uid)
       wi = Witness.new
       wi.user = self
@@ -42,17 +42,13 @@ class User < ApplicationRecord
     holder
   end
 
-  def fullname
-    "#{first_name} #{last_name}"
-  end
-
   def self.witness_is_user(test)
-    User.all.select{|u| u.first_name == test.split(" ").first && u.last_name == test.split(" ").last}
+    User.all.select{|u| u.name == test}
   end
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
-    user_params.merge! auth.info.slice(:email, :first_name, :last_name)
+    user_params.merge! auth.info.slice(:email, :first_name, :last_name, :name)
     user_params[:facebook_picture_url] = auth.info.image
     user_params[:token] = auth.credentials.token
     user_params[:token_expiry] = Time.at(auth.credentials.expires_at)

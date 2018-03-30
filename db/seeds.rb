@@ -11,23 +11,23 @@ Promise.destroy_all
 # @test_users.create_network(network_size, is_app_installed, common_permissions)
 # end
 #
-10.times do
-  users = User.create!(email: Faker::Internet.email,
-                       password: Faker::Internet.password,
-                       first_name: Faker::Name.first_name,
-                       last_name: Faker::Name.last_name,
-                       avatar: Faker::Avatar.image)
-end
+# 10.times do
+#   users = User.create!(email: Faker::Internet.email,
+#                        password: Faker::Internet.password,
+#                        first_name: Faker::Name.first_name,
+#                        last_name: Faker::Name.last_name,
+#                        avatar: Faker::Avatar.image)
+# end
 
-6.times do
-  promises = Promise.new(title: Faker::ChuckNorris.fact, description: Faker::Science.scientist, status: Faker::DragonBall.character, deadline: Faker::Date.forward(23))
-  promises.user = User.order("random()").first
-  promises.save
-end
+# 6.times do
+#   promises = Promise.new(title: Faker::ChuckNorris.fact, description: Faker::Science.scientist, status: Faker::DragonBall.character, deadline: Faker::Date.forward(23))
+#   promises.user = User.order("random()").first
+#   promises.save
+# end
 
-10.times do
-  witnesses = Witness.new(mark_done: Faker::Boolean.boolean, account_status: Faker::Coffee.blend_name)
-  witnesses.user = User.order("random()").first
-  witnesses.promise = Promise.order("random()").first
-  witnesses.save
-end
+# 10.times do
+#   witnesses = Witness.new(mark_done: Faker::Boolean.boolean, account_status: Faker::Coffee.blend_name)
+#   witnesses.user = User.order("random()").first
+#   witnesses.promise = Promise.order("random()").first
+#   witnesses.save
+# end
