@@ -1,7 +1,19 @@
-<h1>This is the dashboard</h1>
+<h1>Ongoing Promises</h1>
 
 <div class="container">
-  <div class="col-xs-6 meg">
+  <div class="col-xs-7 meg">
+  <%= @promises.first.description %>
+
+  <div class="promise-photo">
+    <%= image_tag "drunk.jpg", alt: "promise photo", class: "promise-photo text-center"%>
+    <div class="icons">
+      <i class="fa fa-child fa-2x"></i>
+      <i class="fa fa-check fa-2x"></i>
+      <i class="fa fa-couch fa-2x"></i>
+    </div>
+  </div>
+</div>
+<div class="col-xs-7 meg">
   <%= @promises.first.description %>
 
   <div class="promise-photo">
@@ -14,3 +26,53 @@
   </div>
 </div>
 </div>
+<h1>Past Promises</h1>
+<div class="container-2">
+<div class="card-dashboard col-md-4 col-xs-12">
+  <%= @promises.first.description %>
+
+  <div class="card">
+    <%= image_tag "drunk.jpg", alt: "promise photo", class: "promise-photo text-center"%>
+    <div class="promise-status">
+      <img src="http://escapingworkforce.weebly.com/uploads/6/9/5/0/69507043/published/completed-stamp.gif?1490269793" alt="completed">
+    </div>
+    <div class="icons">
+      <i class="fa fa-child fa-2x"></i>
+      <i class="fa fa-check fa-2x"></i>
+      <i class="fa fa-couch fa-2x"></i>
+    </div>
+  </div>
+</div>
+<div class="card-dashboard col-md-4 col-xs-12 mt-20">
+  <%= @promises.first.description %>
+
+  <div class="card">
+    <%= image_tag "drunk.jpg", alt: "promise photo", class: "card text-center"%>
+    <div class="promise-status">
+      <img src="http://escapingworkforce.weebly.com/uploads/6/9/5/0/69507043/published/completed-stamp.gif?1490269793" alt="completed">
+    </div>
+    <div class="icons">
+      <i class="fa fa-child fa-2x"></i>
+      <i class="fa fa-check fa-2x"></i>
+      <i class="fa fa-couch fa-2x"></i>
+    </div>
+  </div>
+</div>
+<div class="card-dashboard col-md-4 col-xs-12 meg">
+  <%= @promises.first.description %>
+
+  <div class="card">
+    <%= image_tag "drunk.jpg", alt: "promise photo", class: "card text-center"%>
+    <div class="promise-status">
+      <img src="http://escapingworkforce.weebly.com/uploads/6/9/5/0/69507043/published/completed-stamp.gif?1490269793" alt="completed">
+    </div>
+    <div class="icons">
+      <i class="fa fa-child fa-2x"></i>
+      <i class="fa fa-check fa-2x"></i>
+      <i class="fa fa-couch fa-2x"></i>
+    </div>
+  </div>
+</div>
+</div>
+
+
