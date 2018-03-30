@@ -9,7 +9,7 @@
   <%=f.input :title  %>
   <%=f.input :description %>
   <%=f.input :deadline %>
-  <%=f.input :temp_witnesses, label: "Tag your witnesses",  collection: @taggable_friends[0..4].map { |f| f['name']}, as: :check_boxes %>
+  <%=f.input :temp_witnesses, label: "Tag your witnesses",  collection: @taggable_friends.map { |f| f['name']}, as: :check_boxes %>
   <%=f.button :submit %>
   <% end %>
 
