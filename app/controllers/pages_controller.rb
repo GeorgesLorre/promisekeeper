@@ -9,4 +9,8 @@ class PagesController < ApplicationController
   def privacy
     render 'pages/privacy_policy'
   end
+
+  def dashboard
+    @promises = Promise.all
+  end
 end
