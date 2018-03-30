@@ -14,31 +14,30 @@
   <% end %>
 
 
-
-    <h2>View all promises</h2>
-    <div class="row">
+  <h2>View all promises</h2>
+  <div class="row">
     <% @promises.each do |p|%>
-   <div class="col-md-3">
-    <h4><%= p.title  %></h4>
-    <p><%= p.description %></p>
-    <p><%= p.deadline %></p>
+    <div class="col-md-4">
+      <h4><%= p.title  %></h4>
+      <p><%= p.description %></p>
+      <p><%= p.deadline %></p>
       <h5>Witnesses:</h5>
-    <ul>
-      <% p.witnesses.each do |w| %>
-      <li> <%= w.user.fullname %></li>
-      <% end %>
-    </ul>
-    <h5>Temp Witnesses:</h5>
-    <ul>
-      <% p.temp_witnesses.each do |w| %>
-      <li> <%= w.fullname %></li>
-      <% end %>
-    </ul>
-  </div>
+      <ul>
+        <% p.witnesses.each do |w| %>
+        <li> <%= w.user.fullname %></li>
+        <% end %>
+      </ul>
+      <h5>Temp Witnesses:</h5>
+      <ul>
+        <% p.temp_witnesses.each do |w| %>
+        <li> <%= w.fullname %></li>
+        <% end %>
+      </ul>
+    </div>
     <% end %>
-</div>
-  
-<%= render 'testimonials' %>
+  </div>
+
+  <%= render 'testimonials' %>
 </div>
 
 
