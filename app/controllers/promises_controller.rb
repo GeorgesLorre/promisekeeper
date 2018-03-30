@@ -8,6 +8,7 @@ class PromisesController < ApplicationController
     @promise = Promise.new
     @user = current_user
     @taggable_friends = user_signed_in? ? current_user.facebook_taggable_friends : []
+    @friendyjson = @taggable_friends[0..4].to_json
 
   end
 
