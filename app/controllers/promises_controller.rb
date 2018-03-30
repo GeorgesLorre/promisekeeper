@@ -20,8 +20,10 @@ class PromisesController < ApplicationController
   def create
     @promise = Promise.new(promise_params)
     @promise.user = current_user
+    
     redirect_to root_path
     @promise.save!
+    PromiseMailer.creation_confirmation(@promise).deliver_now
 
     holder = @promise.user.facebook_taggable_friends.select{ |x| params[:promise][:temp_witnesses].include?(x["name"]) }
     holder.each do |friend|
@@ -41,6 +43,7 @@ class PromisesController < ApplicationController
     @promise.temp_witnesses.each{|w| tags << w.encoded_fb_id}
     @promise.witnesses.each{|w| tags << w.user.uid}
     link.put_connections("me", "feed", message: "#{@promise.title}" , tags: tags.join(','))
+
   end
 
   def edit

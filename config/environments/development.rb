@@ -56,6 +56,10 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.force_ssl = true
 
+  # To send transaction emails to users
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
   # force use of https for fb login
 
 end

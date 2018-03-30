@@ -14,7 +14,7 @@ gem 'pundit'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
-gem 'font-awesome-sass', '~> 4.7'
+gem 'font-awesome-sass', '~> 5.0.6'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
@@ -22,6 +22,7 @@ gem 'webpacker'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
+  gem "letter_opener", group: :development
 end
 
 group :development, :test do
