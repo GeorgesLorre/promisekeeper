@@ -22,6 +22,27 @@
   border: 3px solid gray;
 }
 
+.card-dashboard {
+  padding: 50px;
+  height: 300px;
+  border-radius: 2px;
+
+
+}
+.body {
+  background-color: #FEFFFE;
+}
+.container-2 {
+  position: relative;
+  height: 300px;
+}
+.promise-status {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+
+
 .tag:hover {
 color: $tag;
 position: relative;
