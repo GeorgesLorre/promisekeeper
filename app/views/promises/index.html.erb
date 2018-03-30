@@ -1,14 +1,39 @@
-<h1>Promises#index</h1>
-<p>Find me in app/views/promises/index.html.erb</p>
+<div class="container">
+
+
+  <h1>Create a promise</h1>
+
+
+  <%= simple_form_for @promise do |f| %>
+  <%=f.input :title  %>
+  <%=f.input :description %>
+  <%=f.input :deadline %>
+  <%=f.input :temp_witnesses, label: "Tag your witnesses",  collection: @taggable_friends[0..4].map { |f| f['name']}, as: :check_boxes %>
+  <%=f.button :submit %>
+  <% end %>
 
 
 
-<ul>
-<% @promises.each do |p|%>
-<li> <%= p.title  %> </li>
-<li> <%= p.description  %> </li>
-<li> <%= p.witnesses.count %> </li>
-<br>
-<% end %>
-</ul>
-
+    <h2>View all promises</h2>
+    <div class="row">
+    <% @promises.each do |p|%>
+   <div class="col-md-3">
+    <h4><%= p.title  %></h4>
+    <p><%= p.description %></p>
+    <p><%= p.deadline %></p>
+      <h5>Witnesses:</h5>
+    <ul>
+      <% p.witnesses.each do |w| %>
+      <li> <%= w.user.fullname %></li>
+      <% end %>
+    </ul>
+    <h5>Temp Witnesses:</h5>
+    <ul>
+      <% p.temp_witnesses.each do |w| %>
+      <li> <%= w.fullname %></li>
+      <% end %>
+    </ul>
+  </div>
+    <% end %>
+</div>
+</div>
