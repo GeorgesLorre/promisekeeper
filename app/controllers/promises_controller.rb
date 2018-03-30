@@ -16,6 +16,12 @@ class PromisesController < ApplicationController
   def create
     @promise = Promise.new(promise_params)
     @promise.user = current_user
+
+    if @promise.save
+      PromiseMailer.creation_confirmation(@promise).deliver_now
+      redirect_to dashboard_path
+    else
+      render :new
   end
 
   def edit
