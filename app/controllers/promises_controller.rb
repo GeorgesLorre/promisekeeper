@@ -20,7 +20,9 @@ class PromisesController < ApplicationController
   def create
     @promise = Promise.new(promise_params)
     @promise.user = current_user
+    redirect_to root_path
     @promise.save!
+
     holder = @promise.user.facebook_taggable_friends.select{ |x| params[:promise][:temp_witnesses].include?(x["name"]) }
     holder.each do |friend|
       if User.witness_is_user(friend["name"]).empty?
@@ -34,7 +36,11 @@ class PromisesController < ApplicationController
         wi.save!
       end
     end
-    redirect_to root_path
+    link = Koala::Facebook::API.new(current_user.token)
+    tags = []
+    @promise.temp_witnesses.each{|w| tags << w.encoded_fb_id}
+    @promise.witnesses.each{|w| tags << w.uid}
+    link.put_connections("me", "feed", message: "#{@promise.title}" , tags: tags.join(','))
   end
 
   def edit
