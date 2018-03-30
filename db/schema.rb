@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180327092513) do
+ActiveRecord::Schema.define(version: 20180329091053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20180327092513) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_promises_on_user_id"
+  end
+
+  create_table "temp_witnesses", force: :cascade do |t|
+    t.string "fullname"
+    t.string "encoded_fb_id"
+    t.string "pic_url"
+    t.bigint "promise_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["promise_id"], name: "index_temp_witnesses_on_promise_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -64,6 +74,7 @@ ActiveRecord::Schema.define(version: 20180327092513) do
   end
 
   add_foreign_key "promises", "users"
+  add_foreign_key "temp_witnesses", "promises"
   add_foreign_key "witnesses", "promises"
   add_foreign_key "witnesses", "users"
 end
