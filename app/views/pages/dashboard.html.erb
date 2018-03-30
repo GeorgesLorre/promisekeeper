@@ -1,25 +1,22 @@
-<h1>This is the dashboard</h1>
-
 <div class="container">
-  <div class="col-xs-6 meg">
-    <%= @promises.first.description %>
+  <div class="col-xs-12 meg">
+
+      <%= time_ago_in_words(5.months.from_now) %> from now I pledge to
 
     <div class="promise-photo">
       <%= image_tag "drunk.jpg", alt: "promise photo", class: "promise-photo text-center"%>
       <div class="icons">
         <div>
           <i class="fa fa-child fa-2x tag"></i>
-          <span class="tooltiptext">Tag a friend</span>
         </div>
         <div>
           <i class="fa fa-check fa-2x check"></i>
-          <span class="tooltiptext">Ask for aproval!</span>
         </div>
         <div>
           <i class="far fa-frown fa-2x quit"></i>
-          <span class="tooltiptext">Disappoint yourself and others</span>
         </div>
       </div>
     </div>
+
   </div>
 </div>
