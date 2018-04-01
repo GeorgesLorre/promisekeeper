@@ -22,13 +22,16 @@ body {
   background-color: #374362 ;
 }
 
+.main-title{
+  margin-top: 100px;
+}
+
 .stage {
-  height: 300px;
-  width: 500px;
+  height: 100px;
+  width: 300px;
   text-align: center;
-  margin: auto;
   position: absolute;
-  top: 15px; right: 30; left: 50px;
+  top: 15px;
   margin-left: 55px;
   perspective: 9999px;
   transform-style: preserve-3d;
@@ -116,7 +119,7 @@ img, media {
 }
 .form-index {
   position: absolute;
-  top: 35%;
+  top: 55%;
   left: 32%;
   height: 150px;
   margin-left: auto;
