@@ -11,3 +11,12 @@
   App.cable = ActionCable.createConsumer();
 
 }).call(this);
+function testhitout(){
+ $(document).ready(function() {
+  console.log('called');
+  $('#promise_temp_witnesses').select2({
+    theme: "bootstrap"
+  });
+});
+}
+ testhitout();

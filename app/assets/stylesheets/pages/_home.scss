@@ -1,1 +1,10 @@
-// Specific CSS for your home-page
+.banner-home {
+  background-color: black;
+  height: 100vh;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}

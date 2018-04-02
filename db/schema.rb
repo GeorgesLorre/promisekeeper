@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180326135316) do
+ActiveRecord::Schema.define(version: 20180330103230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 20180326135316) do
     t.index ["user_id"], name: "index_promises_on_user_id"
   end
 
+  create_table "temp_witnesses", force: :cascade do |t|
+    t.string "fullname"
+    t.string "encoded_fb_id"
+    t.string "pic_url"
+    t.bigint "promise_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["promise_id"], name: "index_temp_witnesses_on_promise_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -40,6 +50,15 @@ ActiveRecord::Schema.define(version: 20180326135316) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "avatar", default: "None"
+    t.string "provider"
+    t.string "uid"
+    t.string "facebook_picture_url"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "token"
+    t.datetime "token_expiry"
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -56,6 +75,7 @@ ActiveRecord::Schema.define(version: 20180326135316) do
   end
 
   add_foreign_key "promises", "users"
+  add_foreign_key "temp_witnesses", "promises"
   add_foreign_key "witnesses", "promises"
   add_foreign_key "witnesses", "users"
 end

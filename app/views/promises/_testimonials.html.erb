@@ -1,0 +1,52 @@
+<div class="testimonials-wrapper">
+  <div class="container testimonial-container text-center">
+    <h3 class="title-testimonials text-left">testimonials.</h2>
+      <div class="row">
+        <% @promises.sample(4).each do |p|%>
+        <div class="col-xs-12 col-md-6 testimonial">
+         <div class="avatar-bordered">
+           <%= image_tag(p.user.facebook_picture_url) %>
+         </div>
+         <div class="content">
+          <p class="testimony title-card" ><%= p.title %>
+  </p>
+  <% if p.title.length > 32 %>
+<span class="btn-expand read-more">
+    Read more
+  </span>
+  <% end %>
+<br>
+          <div class="writer">
+          <p> <%= p.description %> </p>
+          <p> <%= Date.today.strftime("%b %d, %Y") %> </p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+  buttons  = document.getElementsByClassName("read-more");
+  for( let i = 0; i < buttons.length; i++)  {
+      buttons[i].addEventListener('click', function(e) {
+          let parent = this.parentElement.getElementsByClassName("title-card")[0];
+          if (parent.classList.contains("testimony-expanded")){
+            this.innerHTML = "";
+            var but =  this;
+            parent.classList.remove("testimony-expanded");
+            parent.classList.add("testimony");
+            setTimeout(function(){ but.innerHTML = "Read more"; }, 1300 );
+
+          } else {
+            this.innerHTML = "";
+            var but =  this;
+            parent.classList.remove("testimony");
+            parent.classList.add("testimony-expanded");
+            setTimeout(function(){ but.innerHTML = "Close"; }, 1300 );
+
+          }
+     } ) }  ;
+
+</script>
