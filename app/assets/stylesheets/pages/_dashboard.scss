@@ -59,24 +59,4 @@ position: relative;
   position: relative;
 }
 
-.tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -60px;
-  opacity: 0;
-  transition: opacity 1s;
-}
 
-.icons:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-  }
