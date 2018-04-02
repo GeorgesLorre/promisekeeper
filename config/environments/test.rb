@@ -1,4 +1,4 @@
-Rails.application.configure do
+fRails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # The test environment is used exclusively to run your application's
@@ -17,6 +17,7 @@ Rails.application.configure do
   config.public_file_server.headers = {
     'Cache-Control' => "public, max-age=#{1.hour.seconds.to_i}"
   }
+  # dI can
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
