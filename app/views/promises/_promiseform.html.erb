@@ -1,0 +1,17 @@
+
+<div class="container">
+
+  <%= simple_form_for @promise do |f| %>
+  <%=f.input :title  %>
+  <%=f.input :description %>
+  <%=f.input :deadline %>
+
+  <select name="promise[temp_witnesses][]" id="promise_temp_witnesses" class="form-control" multiple>
+  <% @taggable_friends.each do |x| %>
+    <option value='<%= x["name"] %>'><%= x["name"] %></option>
+  <% end %>
+  </select>
+  <%= f.submit %>
+  <% end %>
+
+</div>
