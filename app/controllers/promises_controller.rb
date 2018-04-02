@@ -1,15 +1,13 @@
 require 'json'
 
 class PromisesController < ApplicationController
-  before_action :set_promise, only: [:show, :edit, :update, :destroy]
+  before_action :set_promise, only: [ :edit, :update, :destroy]
 
   def index
     @promises = Promise.all
     @promise = Promise.new
     @user = current_user
     @taggable_friends = user_signed_in? ? current_user.facebook_taggable_friends : []
-    @friendyjson = @taggable_friends[0..4].to_json
-
   end
 
   def show

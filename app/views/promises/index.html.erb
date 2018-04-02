@@ -5,50 +5,7 @@
   <h1>Create a promise</h1>
 
 
-  <%= simple_form_for @promise do |f| %>
-  <%=f.input :title  %>
-  <%=f.input :description %>
-  <%=f.input :deadline %>
-
-  <div id="friendsTagger"  data-list = "<%= @friendyjson %>" ></div>
-  <form class="search-form">
-    <input type="text" class="search" placeholder="Find a friend">
-    <ul class="suggestions">
-    </ul>
-  </form>
-
-  <%=f.input :temp_witnesses, label: "Tag your witnesses",  collection: @taggable_friends.map { |f| f['name']}, as: :check_boxes %>
-  <%=f.button :submit %>
-  <% end %>
-
-
-
-  <script>
-    const friendslist = JSON.parse(document.getElementById('friendsTagger').dataset.list);
-    console.table(friendslist);
-
-
-    function findMatches(wordToMatch, list) {
-      return list.filter(item => {
-        const regex = new RegExp(wordToMatch, 'gi');
-        return item.name.match(regex)
-      });
-    }
-
-    function displayMatches() {
-      const matchArray = findMatches(this.value, friendslist);
-      const html = matchArray.map(match => {
-        return `<li><span class="name">${match.name}</span></li>`;
-      }).join('');
-      suggestions.innerHTML = html;
-    }
-
-    const searchInput = document.querySelector('.search');
-    const suggestions = document.querySelector('.suggestions');
-
-    searchInput.addEventListener('change', displayMatches);
-    searchInput.addEventListener('keyup', displayMatches);
-  </script>
+  <%= render 'promiseform' %>
 
 
   <h2>View all promises</h2>
