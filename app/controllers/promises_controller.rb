@@ -19,7 +19,7 @@ class PromisesController < ApplicationController
   def create
     @promise = Promise.new(promise_params)
     @promise.user = current_user
-    
+
     redirect_to root_path
     @promise.save!
     PromiseMailer.creation_confirmation(@promise).deliver_now

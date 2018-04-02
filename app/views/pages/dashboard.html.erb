@@ -1,22 +1,7 @@
-<h1>Ongoing Promises</h1>
-
 <div class="container">
+  <div class="col-xs-12 meg">
 
-  <div class="col-xs-7 meg">
-  <%= @promises.first.description %>
-
-  <div class="promise-photo">
-    <%= image_tag "drunk.jpg", alt: "promise photo", class: "promise-photo text-center"%>
-    <div class="icons">
-      <i class="fa fa-child fa-2x"></i>
-      <i class="fa fa-check fa-2x"></i>
-      <i class="fa fa-couch fa-2x"></i>
-    </div>
-  </div>
-</div>
-
-  <div class="col-xs-6 meg">
-    <%= @promises.first.description %>
+      <%= time_ago_in_words(5.months.from_now) %> from now I pledge to
 
 
     <div class="promise-photo">
@@ -24,69 +9,15 @@
       <div class="icons">
         <div>
           <i class="fa fa-child fa-2x tag"></i>
-          <span class="tooltiptext">Tag a friend</span>
         </div>
         <div>
           <i class="fa fa-check fa-2x check"></i>
-          <span class="tooltiptext">Ask for aproval!</span>
         </div>
         <div>
           <i class="far fa-frown fa-2x quit"></i>
-          <span class="tooltiptext">Disappoint yourself and others</span>
         </div>
       </div>
     </div>
+
   </div>
 </div>
-
-</div>
-<h1>Past Promises</h1>
-<div class="container-2">
-<div class="card-dashboard col-md-4 col-xs-12">
-  <%= @promises.first.description %>
-
-  <div class="card">
-    <%= image_tag "drunk.jpg", alt: "promise photo", class: "promise-photo text-center"%>
-    <div class="promise-status">
-      <img src="http://escapingworkforce.weebly.com/uploads/6/9/5/0/69507043/published/completed-stamp.gif?1490269793" alt="completed">
-    </div>
-    <div class="icons">
-      <i class="fa fa-child fa-2x"></i>
-      <i class="fa fa-check fa-2x"></i>
-      <i class="fa fa-couch fa-2x"></i>
-    </div>
-  </div>
-</div>
-<div class="card-dashboard col-md-4 col-xs-12 mt-20">
-  <%= @promises.first.description %>
-
-  <div class="card">
-    <%= image_tag "drunk.jpg", alt: "promise photo", class: "card text-center"%>
-    <div class="promise-status">
-      <img src="http://escapingworkforce.weebly.com/uploads/6/9/5/0/69507043/published/completed-stamp.gif?1490269793" alt="completed">
-    </div>
-    <div class="icons">
-      <i class="fa fa-child fa-2x"></i>
-      <i class="fa fa-check fa-2x"></i>
-      <i class="fa fa-couch fa-2x"></i>
-    </div>
-  </div>
-</div>
-<div class="card-dashboard col-md-4 col-xs-12 meg">
-  <%= @promises.first.description %>
-
-  <div class="card">
-    <%= image_tag "drunk.jpg", alt: "promise photo", class: "card text-center"%>
-    <div class="promise-status">
-      <img src="http://escapingworkforce.weebly.com/uploads/6/9/5/0/69507043/published/completed-stamp.gif?1490269793" alt="completed">
-    </div>
-    <div class="icons">
-      <i class="fa fa-child fa-2x"></i>
-      <i class="fa fa-check fa-2x"></i>
-      <i class="fa fa-couch fa-2x"></i>
-    </div>
-  </div>
-</div>
-</div>
-
-
