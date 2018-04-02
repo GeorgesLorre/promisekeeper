@@ -1,2 +1,43 @@
-<h2><%= @promise.title %></h2>
-<p><%= @promise.description %></p>
+<% content_for :for_head do %>
+  <meta property="og:url" content="<%= request.original_url} %>"/>
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="<%= @promise.title %>" />
+  <meta property="og:description" content="<%= @promise.description %>" />
+  <meta property="og:image" content="https://source.unsplash.com/random/400x300" />
+<% end %>
+
+
+<div class="card">
+    <%= image_tag @promise.user.facebook_picture_url, class:"avatar" %>
+  <%= @promise.user.name %>
+  <div class="promise-title">
+    <h2>
+      <%= @promise.title %>
+    </h2>
+  </div>
+
+  <div class="promise-date">
+    <%= @promise.deadline %>
+  </div>
+
+  <div class="promise-description">
+    <p>
+      <%= @promise.description %>
+    </p>
+  </div>
+
+  <div class="show-avatars">
+
+
+    <% @promise.witnesses.all do |w| %>
+    <%= image_tag w.user.facebook_picture_url, class:"avatar avatar-witness" %>
+    <%= w.user.name %>
+    <% end %>
+
+    <% @promise.temp_witnesses.all.each do |w| %>
+    <%= image_tag w.pic_url, class:"avatar avatar-tempwitness" %>
+    <%= w.fullname %>
+    <% end %>
+  </div>
+
+</div>
