@@ -1,7 +1,7 @@
 require 'json'
 
 class PromisesController < ApplicationController
-  before_action :set_promise, only: [ :edit, :update, :destroy]
+  before_action :set_promise, only: [ :show, :edit, :update, :destroy]
 
   def index
     @promises = Promise.all
