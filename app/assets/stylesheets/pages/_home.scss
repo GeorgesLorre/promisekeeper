@@ -17,18 +17,26 @@ input[type=text].title-input {
   box-shadow: none;
   font-size: 40px;
   text-align: center;
+  width: 70vw;
 }
 
 .input[type=submit] {
   background-color: black;
+  width: 70vw;
 }
 
 .select2-container--bootstrap .select2-selection--multiple {
   background-color: black;
-  width: 164px;
   color: white;
   box-shadow: none;
   border: 1px solid white;
+}
+
+.select2.select2-container .select2-container--bootstrap {
+  width: 70vw;
+}
+.input.select2-search_field {
+  width: 70vw;
 }
 
 .promise {
@@ -36,11 +44,18 @@ input[type=text].title-input {
 }
 
 .glyphicon {
-  padding-left: 27%;
+ padding-top: 26px;
+ padding-bottom: 26px;
 }
+
 .promise.active {
   display: flex !important;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+  .input {
+    width: 70vw;
+  }
 }
 
 
@@ -56,3 +71,7 @@ a:hover {
     text-decoration: none;
     opacity: .7;
   }
+
+#submit-glyph {
+  display: none;
+}
