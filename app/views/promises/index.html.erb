@@ -9,25 +9,30 @@
       <div class="promise-calendar promise">
 
         <a href="#previous" class="previous">&lt;</a> <%=f.input :deadline, label: false %> <a href="#next" class="next">&gt;</a>
+        <p id="hey"> </p>
 
       </div>
+
       <div class="promise-witness promise">
         <a href="#previous" class="previous">&lt;</a>
         <select name="promise[temp_witnesses][]" id="promise_temp_witnesses" class="form-control" multiple>
-        <a href="#next" class="next">&gt;</a>
           <% @taggable_friends.each do |x| %>
           <option value='<%= x["name"] %>'><%= x["name"] %></option>
           <% end %>
         </select>
-        <% end %>
+         <% unless @taggable_friends.empty? %>
+
+         <a class="glyphicon glyphicon-thumbs-up" id="submit-glyph"></a>
+         <% end %>
+         <p>Who are your witnesses?</p>
       </div>
+
+        <% end %>
       <br>
     </div>
   </div>
 </div>
-        <p>
-        <span id="banner-typed-text"></span>
-        </p>
+
 
 <script>
 
@@ -39,8 +44,14 @@
     let form_div = next[i].parentElement;
     form_div.classList.remove("active");
     form_div.nextElementSibling.classList.add("active");
+    let answer  =  event.currentTarget.parentElement.getElementsByTagName("input")[0];
+   if(answer.value !== null){
+    let title = answer.value;
+    document.getElementById("hey").innerText = "When do you plan to " + title;
+    }
   });
 }
+
   const previous = document.getElementsByClassName("previous");
   for(let i = 0; i < previous.length; i++ ) {
   previous[i].addEventListener('click', (event) => {
@@ -51,9 +62,14 @@
   });
 }
 
+   const glyph = document.getElementById("submit-glyph");
+   glyph.addEventListener('click', (event) => {
+     document.querySelector("#new_promise").submit();
+ });
+
 </script>
 
-
+<%= render 'story' %>
 
 <%= render 'testimonials' %>
 

@@ -19,20 +19,25 @@ input[type=text].title-input {
   text-align: center;
 }
 
-textarea.form-control.description-input {
+.input[type=submit] {
   background-color: black;
-  color: white;
-  border: hidden;
-  box-shadow: none;
-  font-size: 40px;
-  text-align: center;
 }
 
+.select2-container--bootstrap .select2-selection--multiple {
+  background-color: black;
+  width: 164px;
+  color: white;
+  box-shadow: none;
+  border: 1px solid white;
+}
 
 .promise {
   display: none;
 }
 
+.glyphicon {
+  padding-left: 27%;
+}
 .promise.active {
   display: flex !important;
   align-items: center;

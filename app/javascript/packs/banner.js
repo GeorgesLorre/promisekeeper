@@ -1,10 +1,12 @@
 import Typed from 'typed.js';
 
 function loadText(){
-  new Typed ('#banner-typed-text', {
-    strings: ["Hi John!", "How are you doing?", "Wife and kids alright?", "She did what?", "Women are a labyrinth my friend...", "I gotta go"],
-    typeSpeed: 50,
-    loop: true
+  new Typed ('.title-input', {
+    strings: ["Make a promise", "Clean my room", "Stop staring", "Play the violin", "Commit more often", "Your turn"],
+    typeSpeed: 30,
+    bindInputFocusEvents: true,
+    attr: 'placeholder',
+    loop: false,
   });
 }
 
