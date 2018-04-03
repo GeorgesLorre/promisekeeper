@@ -45,7 +45,7 @@ class PromisesController < ApplicationController
         tags = []
         @promise.temp_witnesses.each{|w| tags << w.encoded_fb_id}
         @promise.witnesses.each{|w| tags << w.user.uid}
-        link.put_connections("me", "feed", message: "#{@promise.title}" , tags: tags.join(','))
+        link.put_connections("me", "feed", message: "https://promise-keeper.herokuapp.com/promises/#{@promise.id}" , tags: tags.join(','))
       else
         if @promise.errors.any?
           flash[:alert] = @promise.errors
