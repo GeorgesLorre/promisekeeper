@@ -18,3 +18,11 @@
 @import "pages/index";
 @import "pages/dashboard";
 
+.promise {
+  display: none;
+}
+
+.promise.active {
+  display: inherit;
+}
+
