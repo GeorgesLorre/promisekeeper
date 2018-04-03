@@ -7,8 +7,6 @@ console.log("Hello from app/javascript/packs/application.js!");
 
 console.log("Hello from app/javascript/packs/application.js!");
 
-
-
 scroll();
 loadText();
 

@@ -17,37 +17,9 @@
         <a href="#previous" class="previous">&lt;</a> <%=f.input :deadline, label: false %> <a href="#next" class="next">&gt;</a>
         <p id="hey"> </p>
 
-  <p>Don't procrastinate. Dedicate</p>
-</div>
-
-
-<%= render 'promiseform' %>
-
-  <div class="cards">
-    <!-- Code your cards  here -->
-    <div class="row">
-    <% @promises.sample(9).each do |p|%>
-    <div class="card col-xs-6 col-md-4">
-      <div class="card-body" style="background-image: linear-gradient(-225deg, rgba(200,200,200,0.1) 0%, rgba(200,200,200,0.2) ), url(https://source.unsplash.com/random/400x300);">
-
-        <div class="card-description" style="margin-left: 15px;">
-         <h3> I will stop smoking </h3>
-       </div>
-       <div>
-        <img class="card-avatar avatar avatar-large" >
-        <div class="avatar-bordered" style="margin-left: 10px;">
-          <%= image_tag(p.user.facebook_picture_url) %>
-        </div>
-        </div>
-        </div>
-
-        </div>
-          <% end %>
-</div>
-</div>
-
-
+          <p>Don't procrastinate. Dedicate</p>
       </div>
+
 
       <div class="promise-witness promise">
         <a href="#previous" class="previous">&lt;</a>
