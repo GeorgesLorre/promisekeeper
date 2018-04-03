@@ -11,6 +11,7 @@
   App.cable = ActionCable.createConsumer();
 
 }).call(this);
+
 function testhitout(){
  $(document).ready(function() {
   $('#promise_temp_witnesses').select2({
@@ -18,4 +19,6 @@ function testhitout(){
   });
 });
 }
- testhitout();
+testhitout();
+
+
