@@ -39,7 +39,7 @@ class PromisesController < ApplicationController
             wi.save!
           end
         end
-        PromiseMailer.creation_confirmation(@promise).deliver_now
+        # PromiseMailer.creation_confirmation(@promise).deliver_now
         redirect_to promise_path(@promise)
         link = Koala::Facebook::API.new(current_user.token)
         tags = []
