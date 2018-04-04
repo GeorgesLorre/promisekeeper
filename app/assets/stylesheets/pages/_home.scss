@@ -27,7 +27,7 @@ input[type=text].title-input {
 
 .select2-container--bootstrap .select2-selection--multiple {
   background-color: transparent;
-  color: #307672;
+  color: $green;
   box-shadow: none;
   border: 1px solid white;
 }
@@ -61,13 +61,13 @@ input[type=text].title-input {
 
 a {
   font-size: 40px;
-  color: #307672;
+  color: $green;
   padding-left: 15px;
   padding-right: 15px;
 }
 
 a:hover {
-    color: #307672;
+    color: $green;
     text-decoration: none;
     opacity: .7;
   }

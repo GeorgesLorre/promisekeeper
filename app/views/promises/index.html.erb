@@ -1,90 +1,38 @@
-<% content_for :for_head do %>
-  <%= render 'layouts/fbthumbnail' %>
-<% end %>
-
-
 <div class="banner-home">
   <div class="banner-content">
     <div id="new-promise">
       <%= simple_form_for @promise do |f| %>
       <div class="promise-title promise active">
         <%=f.input :title, input_html: { class: "title-input" }, autofocus: true, label: false %>
-        <a href="#next" class="next glyphicon glyphicon-chevron-down
-        "></a>
+        <a href="#next" class="next glyphicon glyphicon-chevron-down"></a>
       </div>
       <div class="promise-calendar promise">
-
-<<<<<<< HEAD
         <a href="#previous" class="previous
         glyphicon glyphicon-chevron-up"></a> <%=f.input :deadline, label: false %> <a href="#next" class="next glyphicon glyphicon-chevron-down
-        "></a>
-=======
-
-        <a href="#previous" class="previous">&lt;</a> <%=f.input :deadline, label: false %> <a href="#next" class="next">&gt;</a>
->>>>>>> cea3f29a68667fce0e9af7705dfbc4086bd801f6
+        "> </a>
         <p id="hey"> </p>
-
-  <p>Don't procrastinate. Dedicate</p>
-</div>
-
-
-<%= render 'promiseform' %>
-
-  <div class="cards">
-    <!-- Code your cards  here -->
-    <div class="row">
-    <% @promises.sample(9).each do |p|%>
-    <div class="card col-xs-6 col-md-4">
-      <div class="card-body" style="background-image: linear-gradient(-225deg, rgba(200,200,200,0.1) 0%, rgba(200,200,200,0.2) ), url(https://source.unsplash.com/random/400x300);">
-
-        <div class="card-description" style="margin-left: 15px;">
-         <h3> I will stop smoking </h3>
-       </div>
-       <div>
-        <img class="card-avatar avatar avatar-large" >
-        <div class="avatar-bordered" style="margin-left: 10px;">
-          <%= image_tag(p.user.facebook_picture_url) %>
-        </div>
-        </div>
-        </div>
-
-        </div>
-          <% end %>
-</div>
-</div>
-
-
       </div>
-
       <div class="promise-witness promise">
-        <a href="#previous" class="previous
-        glyphicon glyphicon-chevron-up"></a>
-
+        <a href="#previous" class="previous glyphicon glyphicon-chevron-up"></a>
         <select name="promise[temp_witnesses][]" id="promise_temp_witnesses" class="form-control" multiple="multiple" style="width: 70vw">
           <% @taggable_friends.each do |x| %>
           <option value='<%= x["name"] %>'><%= x["name"] %></option>
-          <% end %>
+            <% end %>
         </select>
-        <% unless @taggable_friends.empty? %>
-
         <a class="glyphicon glyphicon-thumbs-up" id="submit-glyph"></a>
-        <% end %>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <p>Choose your witnesses</p>
       </div>
-
       <% end %>
     </div>
   </div>
 </div>
 
-
 <script>
-
   const next = document.getElementsByClassName("next");
   for(let i = 0; i < next.length; i++){
     console.log(i);
