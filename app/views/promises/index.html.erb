@@ -16,7 +16,7 @@
       </div>
       <div class="promise-calendar promise">
         <a href="#previous" class="previous
-        glyphicon glyphicon-chevron-up"></a> <%=f.input :deadline, label: false %> <a href="#next" class="next glyphicon glyphicon-chevron-down
+        glyphicon glyphicon-chevron-up"></a> <%=f.input :deadline, as: :string, label: false, placeholder: 'Date', input_html: { class: "datepicker title-input" } %> <a href="#next" class="next glyphicon glyphicon-chevron-down
         "> </a>
         <p id="hey"> </p>
       </div>
@@ -52,6 +52,7 @@
 </div>
 
 <script>
+
   const next = document.getElementsByClassName("next");
   for(let i = 0; i < next.length; i++){
     console.log(i);

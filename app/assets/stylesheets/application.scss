@@ -11,6 +11,13 @@
 @import "select2";
 @import "select2-bootstrap";
 
+@import "pickadate/default";
+@import "pickadate/default.date";
+@import "pickadate/default.time";
+// *= require pickadate/default
+// *= require pickadate/default.date
+// *= require pickadate/default.time
+
 // Your CSS partials
 @import "layouts/index";
 @import "layouts/show";
