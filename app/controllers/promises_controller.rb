@@ -79,7 +79,7 @@ class PromisesController < ApplicationController
   end
 
   def promise_params
-    params.require(:promise).permit(:title, :description, :deadline)
+    params.require(:promise).permit(:title, :description, :deadline, :photo)
   end
 
   def temp_witness_fields(i)

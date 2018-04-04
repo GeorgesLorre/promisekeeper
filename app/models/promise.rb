@@ -4,4 +4,15 @@ class Promise < ApplicationRecord
   has_many :witnesses, dependent: :destroy
   has_many :users, through: :witnesses
   accepts_nested_attributes_for :users
+
+  mount_uploader :photo, PhotoUploader
+
+  after_validation :checkphoto
+
+  def checkphoto
+    if self.photo.blank?
+      self.photo = open("http://res.cloudinary.com/drqpismbb/image/upload/v1522827398/tycgbncjmxkvivorgntb.png")
+      self.save
+    end
+  end
 end
