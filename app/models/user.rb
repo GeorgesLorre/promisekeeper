@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :promises, dependent: :destroy
 
-
+  has_many :witnesses
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable
 
