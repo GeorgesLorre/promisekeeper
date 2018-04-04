@@ -1,0 +1,73 @@
+   <div class="card">
+    <%= image_tag 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fada82e527ef9eeaa1faed34043b425b&auto=format&fit=crop&w=967&q=80', class:"show-image" %>
+    <%= image_tag @promise.user.facebook_picture_url, class:"avatar-main" %>
+
+    <%= @promise.user.name%>
+
+
+    <div class="promise-date">
+      <%= @promise.deadline %>
+    </div>
+
+
+    <div class="promise-title">
+      <%= @promise.title.upcase %>
+    </div>
+
+    <div class="promise-description">
+    </div>
+
+    <div class="promise-flipclock" data-seconds="<%=(@promise.deadline.to_time - DateTime.now.to_time).to_i %>">
+      <div class="your-clock"></div>
+    </div>
+
+
+
+
+    <div class="show-witnesses-title">
+      WITNESSES
+    </div>
+
+    <div class="show-avatars">
+
+      <% @promise.witnesses.all do |w| %>
+      <div class="show-witness">
+        <%= image_tag w.user.facebook_picture_url, class:"avatarmain" %>
+        <figcaption class="caption"><%= w.user.first_name %></figcaption>
+      </div>
+      <% end %>
+
+      <% @promise.temp_witnesses.all.each do |w| %>
+      <div class="show-witness">
+        <%= image_tag w.pic_url, class:"avatar avatar-tempwitness" %>
+        <figcaption class="caption"><%= w.fullname.split(' ').first %></figcaption>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+
+
+
+  <script>
+
+    document.addEventListener("DOMContentLoaded", function(event) {
+    //console.log("DOM fully loaded and parsed");
+    // console.log($('.promise-flipclock').data('seconds'));
+    var readdata = $('.promise-flipclock').data('seconds')
+    var seconds = readdata > 0 ? readdata : 0 ;
+    var clock = $('.your-clock').FlipClock({
+      clockFace: 'DailyCounter',
+      autoStart: false,
+      callbacks: {
+        stop: function() {
+          $('.message').html('The clock has stopped!')
+        }
+      }
+    });
+
+    clock.setTime(seconds);
+    clock.setCountdown(true);
+    clock.start();
+  });
+</script>

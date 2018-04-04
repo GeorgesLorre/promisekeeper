@@ -11,7 +11,6 @@ class PromisesController < ApplicationController
   end
 
   def show
-
   end
 
   def new
@@ -40,13 +39,13 @@ class PromisesController < ApplicationController
             wi.save!
           end
         end
-        PromiseMailer.creation_confirmation(@promise).deliver_now
+        # PromiseMailer.creation_confirmation(@promise).deliver_now
         redirect_to promise_path(@promise)
-        # link = Koala::Facebook::API.new(current_user.token)
-        # tags = []
-        # @promise.temp_witnesses.each{|w| tags << w.encoded_fb_id}
-        # @promise.witnesses.each{|w| tags << w.user.uid}
-        # link.put_connections("me", "feed", message: "#{@promise.title}" , tags: tags.join(','))
+        link = Koala::Facebook::API.new(current_user.token)
+        tags = []
+        @promise.temp_witnesses.each{|w| tags << w.encoded_fb_id}
+        @promise.witnesses.each{|w| tags << w.user.uid}
+        link.put_connections("me", "feed", link: "https://promise-keeper.herokuapp.com/promises/#{@promise.id}" , tags: tags.join(','))
       else
         if @promise.errors.any?
           flash[:alert] = @promise.errors

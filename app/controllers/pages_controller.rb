@@ -11,6 +11,6 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @promises = Promise.all
+    @mypromises = current_user.promises
   end
 end

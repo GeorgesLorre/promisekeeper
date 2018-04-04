@@ -1,23 +1,12 @@
 <div class="container">
   <div class="row">
+
+  <% @mypromises.each do |promise| %>
   <div class="col-xs-12 col-md-6 meg">
-
-      <%= time_ago_in_words(5.months.from_now) %> from now I pledge to
-
-    <div class="promise-photo">
-      <%= image_tag "https://source.unsplash.com/random/400x300", alt: "promise photo", class: "promise-photo text-center"%>
-      <div class="icons">
-        <div>
-          <i class="fa fa-child fa-2x tag"></i>
-        </div>
-        <div>
-          <i class="fa fa-check fa-2x check"></i>
-        </div>
-        <div>
-          <i class="far fa-frown fa-2x quit"></i>
-        </div>
-      </div>
-    </div>
+      <%@promise = promise  %>
+      <%= render 'shared/promiseshow' %>
   </div>
+    <% end %>
 </div>
 </div>
+
