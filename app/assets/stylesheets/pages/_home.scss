@@ -1,5 +1,5 @@
 .banner-home {
-  background-color: black;
+  background-image: url("unplash"), linear-gradient(-225deg, rgba(0,101,168,0.9) 0%, rgba(0,36,61,0.6) 50%);
   height: 100vh;
   background-size: cover;
   display: flex;
@@ -11,24 +11,32 @@
 }
 
 input[type=text].title-input {
-  background-color: black;
+  background-color: transparent;
   color: white;
   border: hidden;
   box-shadow: none;
-  font-size: 40px;
+  font-size: 35px;
   text-align: center;
+  width: 100%;
 }
 
 .input[type=submit] {
-  background-color: black;
+  background-color: transparent;
+  width: 70vw;
 }
 
 .select2-container--bootstrap .select2-selection--multiple {
-  background-color: black;
-  width: 164px;
-  color: white;
+  background-color: transparent;
+  color: $green;
   box-shadow: none;
   border: 1px solid white;
+}
+
+.select2.select2-container .select2-container--bootstrap {
+  width: 70vw;
+}
+.input.select2-search_field {
+  width: 70vw;
 }
 
 .promise {
@@ -36,23 +44,34 @@ input[type=text].title-input {
 }
 
 .glyphicon {
-  padding-left: 27%;
+ padding-top: 26px;
+ padding-bottom: 26px;
 }
+
 .promise.active {
   display: flex !important;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+  p {
+    font-weight: bold
+  }
 }
 
 
 a {
   font-size: 40px;
-  color: white;
+  color: $green;
   padding-left: 15px;
   padding-right: 15px;
 }
 
 a:hover {
-    color: white;
+    color: $green;
     text-decoration: none;
     opacity: .7;
   }
+
+#submit-glyph {
+  display: none;
+}
