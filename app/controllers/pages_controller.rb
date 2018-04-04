@@ -13,8 +13,4 @@ class PagesController < ApplicationController
   def dashboard
     @mypromises = current_user.promises
   end
-
-  def friends
-   @witness = Witness.link_wt_promise(current_user)
-  end
 end
