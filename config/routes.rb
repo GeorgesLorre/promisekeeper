@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get "dashboard", to: "pages#dashboard"
 
+  get "friends", to: "pages#friends"
+
   get "home", to: "pages#home"
 
   devise_for :users,

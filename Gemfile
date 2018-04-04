@@ -23,6 +23,7 @@ gem 'webpacker'
 gem 'bourbon'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
+gem 'pickadate-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

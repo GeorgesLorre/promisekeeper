@@ -11,7 +11,7 @@ class Promise < ApplicationRecord
 
   def checkphoto
     if self.photo.blank?
-      self.photo = open("http://res.cloudinary.com/drqpismbb/image/upload/v1522827398/tycgbncjmxkvivorgntb.png")
+      self.photo = open("http://res.cloudinary.com/drqpismbb/image/upload/v1522827528/dlcfbcdheok5e95saiao.png")
       self.save
     end
   end
