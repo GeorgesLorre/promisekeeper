@@ -3,13 +3,10 @@
   <%= render 'layouts/fbthumbnail' %>
 <% end %>
 
-<br>
-<br>
-<%= render 'promiseform' %>
-<br>
-<br>
 
-<div class="banner-home">
+
+<div class="banner-home" style="background-image: url('<%= cl_image_path("f7b67tkmst3tfgkppejn.jpg")%>'), linear-gradient(-225deg, rgba(0,101,168,0.9) 0%, rgba(0,36,61,0.6) 50%)">
+
   <div class="banner-content">
     <div id="new-promise">
       <%= simple_form_for @promise do |f| %>
@@ -23,6 +20,17 @@
         "> </a>
         <p id="hey"> </p>
       </div>
+      <div class="promise-photo promise">
+        <a href="#previous" class="previous
+        glyphicon glyphicon-chevron-up"></a> <%=f.input :photo, label: false %>
+        <%= f.input :photo_cache, as: :hidden %> <a href="#next" class="next glyphicon glyphicon-chevron-down
+        "> </a>
+
+        <p> Upload a picture  </p>
+      </div>
+
+
+
       <div class="promise-witness promise">
         <a href="#previous" class="previous glyphicon glyphicon-chevron-up"></a>
         <select name="promise[temp_witnesses][]" id="promise_temp_witnesses" class="form-control" multiple="multiple" style="width: 70vw">
