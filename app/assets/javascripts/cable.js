@@ -17,6 +17,18 @@ function testhitout(){
   $('#promise_temp_witnesses').select2({
     theme: "bootstrap"
   });
+
+  $('#promise_temp_witnesses').on('change', function (e) {
+    console.log(e);
+    var arr = $('#promise_temp_witnesses').select2('data');
+    if(arr.length === 0) {
+      $('#submit-glyph').hide();
+    }
+    else {
+      $('#submit-glyph').show();
+    }
+
+});
 });
 }
 testhitout();

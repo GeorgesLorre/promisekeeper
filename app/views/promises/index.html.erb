@@ -1,8 +1,7 @@
+
 <% content_for :for_head do %>
   <%= render 'layouts/fbthumbnail' %>
 <% end %>
-
-
 
 <br>
 <br>
@@ -10,77 +9,70 @@
 <br>
 <br>
 
-
 <div class="banner-home">
   <div class="banner-content">
     <div id="new-promise">
       <%= simple_form_for @promise do |f| %>
       <div class="promise-title promise active">
         <%=f.input :title, input_html: { class: "title-input" }, autofocus: true, label: false %>
-        <a href="#next" class="next">&gt;</a>
+        <a href="#next" class="next glyphicon glyphicon-chevron-down"></a>
       </div>
       <div class="promise-calendar promise">
-
-
-        <a href="#previous" class="previous">&lt;</a> <%=f.input :deadline, label: false %> <a href="#next" class="next">&gt;</a>
+        <a href="#previous" class="previous
+        glyphicon glyphicon-chevron-up"></a> <%=f.input :deadline, label: false %> <a href="#next" class="next glyphicon glyphicon-chevron-down
+        "> </a>
         <p id="hey"> </p>
-
-          <p>Don't procrastinate. Dedicate</p>
       </div>
-
-
       <div class="promise-witness promise">
-        <a href="#previous" class="previous">&lt;</a>
-        <select name="promise[temp_witnesses][]" id="promise_temp_witnesses" class="form-control" multiple>
+        <a href="#previous" class="previous glyphicon glyphicon-chevron-up"></a>
+        <select name="promise[temp_witnesses][]" id="promise_temp_witnesses" class="form-control" multiple="multiple" style="width: 70vw">
           <% @taggable_friends.each do |x| %>
           <option value='<%= x["name"] %>'><%= x["name"] %></option>
-          <% end %>
+            <% end %>
         </select>
-         <% unless @taggable_friends.empty? %>
-
-         <a class="glyphicon glyphicon-thumbs-up" id="submit-glyph"></a>
-         <% end %>
-         <p>Who are your witnesses?</p>
+        <a class="glyphicon glyphicon-thumbs-up" id="submit-glyph"></a>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <p>Choose your witnesses</p>
       </div>
-
-        <% end %>
-      <br>
+      <% end %>
     </div>
   </div>
 </div>
 
-
 <script>
-
   const next = document.getElementsByClassName("next");
   for(let i = 0; i < next.length; i++){
     console.log(i);
-  next[i].addEventListener('click',(event) => {
-    event.preventDefault();
-    let form_div = next[i].parentElement;
-    form_div.classList.remove("active");
-    form_div.nextElementSibling.classList.add("active");
-    let answer  =  event.currentTarget.parentElement.getElementsByTagName("input")[0];
-   if(answer.value !== null){
-    let title = answer.value;
-    document.getElementById("hey").innerText = "When do you plan to " + title;
-    }
-  });
-}
+    next[i].addEventListener('click',(event) => {
+      event.preventDefault();
+      let form_div = next[i].parentElement;
+      form_div.classList.remove("active");
+      form_div.nextElementSibling.classList.add("active");
+      let answer  =  event.currentTarget.parentElement.getElementsByTagName("input")[0];
+      if(answer !== undefined && answer !== null && answer.value !== null){
+        let title = answer.value;
+        document.getElementById("hey").innerText = "When do you plan to " + title;
+      }
+    });
+  }
 
   const previous = document.getElementsByClassName("previous");
   for(let i = 0; i < previous.length; i++ ) {
-  previous[i].addEventListener('click', (event) => {
-    event.preventDefault();
-    let form_div = previous[i].parentElement;
-    form_div.classList.remove("active");
-    form_div.previousElementSibling.classList.add("active");
-  });
-}
+    previous[i].addEventListener('click', (event) => {
+      event.preventDefault();
+      let form_div = previous[i].parentElement;
+      form_div.classList.remove("active");
+      form_div.previousElementSibling.classList.add("active");
+    });
+  }
 
-   const glyph = document.getElementById("submit-glyph");
-   glyph.addEventListener('click', (event) => {
-     document.querySelector("#new_promise").submit();
+  const glyph = document.getElementById("submit-glyph");
+  glyph.addEventListener('click', (event) => {
+   document.querySelector("#new_promise").submit();
  });
 
 </script>
