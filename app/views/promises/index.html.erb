@@ -1,47 +1,84 @@
+
+<% content_for :for_head do %>
+  <%= render 'layouts/fbthumbnail' %>
+<% end %>
+
+<br>
+<br>
+<%= render 'promiseform' %>
+<br>
+<br>
+
 <div class="banner-home">
-<div class="banner-content">
-
-  <p>Don't procrastinate. Dedicate</p>
-</div>
-</div>
-
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-  </ol>
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <img src="..." alt="...">
-      <div class="carousel-caption">
-        ...
+  <div class="banner-content">
+    <div id="new-promise">
+      <%= simple_form_for @promise do |f| %>
+      <div class="promise-title promise active">
+        <%=f.input :title, input_html: { class: "title-input" }, autofocus: true, label: false %>
+        <a href="#next" class="next glyphicon glyphicon-chevron-down"></a>
       </div>
-    </div>
-    <div class="item">
-      <img src="..." alt="...">
-      <div class="carousel-caption">
-        ...
+      <div class="promise-calendar promise">
+        <a href="#previous" class="previous
+        glyphicon glyphicon-chevron-up"></a> <%=f.input :deadline, label: false %> <a href="#next" class="next glyphicon glyphicon-chevron-down
+        "> </a>
+        <p id="hey"> </p>
       </div>
+      <div class="promise-witness promise">
+        <a href="#previous" class="previous glyphicon glyphicon-chevron-up"></a>
+        <select name="promise[temp_witnesses][]" id="promise_temp_witnesses" class="form-control" multiple="multiple" style="width: 70vw">
+          <% @taggable_friends.each do |x| %>
+          <option value='<%= x["name"] %>'><%= x["name"] %></option>
+            <% end %>
+        </select>
+        <a class="glyphicon glyphicon-thumbs-up" id="submit-glyph"></a>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <p>Choose your witnesses</p>
+      </div>
+      <% end %>
     </div>
-    ...
   </div>
-
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
 </div>
 
+<script>
+  const next = document.getElementsByClassName("next");
+  for(let i = 0; i < next.length; i++){
+    console.log(i);
+    next[i].addEventListener('click',(event) => {
+      event.preventDefault();
+      let form_div = next[i].parentElement;
+      form_div.classList.remove("active");
+      form_div.nextElementSibling.classList.add("active");
+      let answer  =  event.currentTarget.parentElement.getElementsByTagName("input")[0];
+      if(answer !== undefined && answer !== null && answer.value !== null){
+        let title = answer.value;
+        document.getElementById("hey").innerText = "When do you plan to " + title;
+      }
+    });
+  }
+
+  const previous = document.getElementsByClassName("previous");
+  for(let i = 0; i < previous.length; i++ ) {
+    previous[i].addEventListener('click', (event) => {
+      event.preventDefault();
+      let form_div = previous[i].parentElement;
+      form_div.classList.remove("active");
+      form_div.previousElementSibling.classList.add("active");
+    });
+  }
+
+  const glyph = document.getElementById("submit-glyph");
+  glyph.addEventListener('click', (event) => {
+   document.querySelector("#new_promise").submit();
+ });
+
+</script>
+
+<%= render 'story' %>
 
 <%= render 'testimonials' %>
 
-<%= render 'promiseform' %>
+
