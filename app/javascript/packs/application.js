@@ -10,6 +10,3 @@ console.log("Hello from app/javascript/packs/application.js!");
 
 scroll();
 loadText();
-
-
-
