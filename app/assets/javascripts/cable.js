@@ -11,13 +11,13 @@
   App.cable = ActionCable.createConsumer();
 
 }).call(this);
-
 function testhitout(){
  $(document).ready(function() {
   $('#promise_temp_witnesses').select2({
     theme: "bootstrap"
   });
 
+  $('.datepicker').pickadate();
   $('#promise_temp_witnesses').on('change', function (e) {
     console.log(e);
     var arr = $('#promise_temp_witnesses').select2('data');
