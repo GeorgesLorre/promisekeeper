@@ -153,6 +153,42 @@
 </div>
 
 
+<!-- ---------------------------------------------------- -->
+<div class="coompleted-promises col-xs-12 col-md-4">
+  <h2>Check your past promises</h2>
+  <div class="cards-dashboard" style="height: 250px;">
+    <!-- Code your cards  here -->
+    <% @promises.sample(3).each do |p|%>
+    <div class="card">
+      <div class="card-body" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) ), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbfNVP40B4E0eKN2YcmOdhKI_R2QPHmrderSUEeHsne5e56yag');">
+
+
+        <div class="card-description" style="margin-left: 15px;">
+         <h3 style="height: 250px;"> I will stop smoking </h3>
+
+         <div class="card-content">
+          <h4>lorem impsum modus tolem porque me invento cosas no se ni hacer un lorem ipsum bu jakarta iria hacía smyrne turkia, el dia de el tuerkey</h4>
+        </div>
+        <div class="stamp">
+          <%= image_tag (['broken-stamp.png','completed-stamp.jpg'].sample) , height: 150 ; %>
+         <!--  Both completed green stamp & red broken stamp -->
+       </div>
+       <div class="more">
+         <button>Read More</button>
+       </div>
+       <div class="deadline" style="color: #FFFFFF">
+         <%= p.deadline %>
+       </div>
+       <div>
+       </div>
+     </div>
+
+   </div>
+   <% end %>
+ </div>
+
+
+
 
 
 
