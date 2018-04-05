@@ -1,1 +1,7 @@
 <h1>Hello Friends</h1>
+
+
+<%current_user.witnesses.each do |wit| %>
+ <%= wit.promise.title %>
+ <p>By </p> <%= wit.promise.user.name %>
+<% end %>
