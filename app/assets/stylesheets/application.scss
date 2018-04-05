@@ -1,3 +1,6 @@
+
+
+
 // *= require pickadate/default
 // *= require pickadate/default.date
 // *= require pickadate/default.time
@@ -21,7 +24,7 @@
 @import "layouts/show";
 @import "components/index";
 @import "pages/index";
-@import "pages/dashboard";
+//@import "pages/dashboard";
 
 .promise {
   display: none;
