@@ -83,6 +83,8 @@ a:hover {
     opacity: .7;
   }
 
+
+
 .new_promise{
   font-size: 15px;
   font-family: "Ubuntu";
@@ -97,7 +99,12 @@ a:hover {
   justify-content: space-around;
   font-size: 1.3em;
   color: $green;
+  text-decoration:none;
+  }
+#camera{
+  font-size: 40px;
 }
+
 #next{
   grid-row: 4;
   grid-column: 3;

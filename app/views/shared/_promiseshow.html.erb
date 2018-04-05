@@ -23,23 +23,20 @@
       <div class="your-clock"></div>
     </div>
 
-
-
-
     <div class="show-witnesses-title">
       WITNESSES
     </div>
 
     <div class="show-avatars">
 
-      <% @promise.witnesses.all do |w| %>
+      <% @promise.witnesses.each do |w| %>
       <div class="show-witness">
         <%= image_tag w.user.facebook_picture_url, class:"avatarmain" %>
         <figcaption class="caption"><%= w.user.first_name %></figcaption>
       </div>
       <% end %>
 
-      <% @promise.temp_witnesses.all.each do |w| %>
+      <% @promise.temp_witnesses.each do |w| %>
       <div class="show-witness">
         <%= image_tag w.pic_url, class:"avatar avatar-tempwitness" %>
         <figcaption class="caption"><%= w.fullname.split(' ').first %></figcaption>
