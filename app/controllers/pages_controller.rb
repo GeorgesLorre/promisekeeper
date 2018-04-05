@@ -5,7 +5,10 @@ class PagesController < ApplicationController
   #   @friends = @graph.get_connections("me", "friends")
   #   raise
   # end
-  #
+
+  def home
+    @promise = Promise.new
+  end
   def privacy
     render 'pages/privacy_policy'
   end

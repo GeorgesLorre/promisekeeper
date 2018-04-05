@@ -1,5 +1,6 @@
 .banner-home {
   height: 100vh;
+  width: 100vw;
   background-size: cover;
   display: flex;
   align-items: center;
@@ -7,6 +8,25 @@
   color: white;
   text-align: center;
   font-family: 'Ubuntu', sans-serif;
+}
+.glyphicon-camera{
+  font-size: 40px;
+  padding: none;
+}
+
+#promise_description{
+  background-color: transparent;
+  color: white;
+  border: hidden;
+  box-shadow: none;
+  font-size: 35px;
+  text-align: center;
+  width: 100%;
+  height: 50px;
+}
+
+.promise-file-button{
+  width: 70vw;
 }
 
 input[type=text].title-input {
@@ -31,19 +51,26 @@ input[type=text].title-input {
   border: 1px solid white;
 }
 
-.select2.select2-container .select2-container--bootstrap {
-  width: 70vw;
+
+
+.select2-selection__rendered {
+  margin-bottom: 70px;
 }
 .input.select2-search_field {
-  width: 70vw;
+  width: 100%;
 }
 
 .promise {
   display: none;
 }
 
-.glyphicon {
+.next {
  padding-top: 26px;
+ padding-bottom: 26px;
+}
+
+.previous{
+  padding-top: 26px;
  padding-bottom: 26px;
 }
 
