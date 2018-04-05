@@ -1,7 +1,7 @@
-<div class="navbar-wagon navbar-fixed-top">
+<div class="navbar-wagon">
   <!-- Logo -->
    <%= link_to root_path do %>
-  <%= cl_image_tag("lock.svg", class: "logo") %>
+  <div class="header-left"><div> <%= cl_image_tag("lock.svg", class: "logo") %></div><div class="logotitle"> &nbsp;<p class="titlefont"> &nbsp;&nbspPromiseKeeper</p></div></div>
 <% end %>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -39,7 +39,7 @@
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li> <%= link_to "Home", root_path %></li>
         <li> <%= link_to "My promises", dashboard_path %></li>
-        <li> <%= link_to "Friends' promises", friends_path %></li>
+        <li> <%= link_to "My Friends' promises", friends_path %></li>
         <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
             <%= t(".sign_out", default: "Log out") %>

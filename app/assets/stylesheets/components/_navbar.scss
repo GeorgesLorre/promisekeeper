@@ -80,3 +80,25 @@ img.logo {
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+a .logotitle {
+  font-size: 13px;
+
+}
+
+.logotitle p {
+  font-size: 30px !important;
+  color: black;
+
+}
+
+.titlefont {
+  font-family: 'Ubuntu';
+  font-weight: lighter;
+
+}

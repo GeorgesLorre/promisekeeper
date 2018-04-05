@@ -64,7 +64,7 @@
       let answer  =  event.currentTarget.parentElement.getElementsByTagName("input")[0];
       if(answer !== undefined && answer !== null && answer.value !== null){
         let title = answer.value;
-        document.getElementById("hey").innerText = "When do you plan to " + title;
+        document.getElementById("hey").innerText = "When do you plan to " + title.toLowercase();
       }
     });
   }

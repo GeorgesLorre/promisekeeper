@@ -22,6 +22,7 @@
 @import "components/index";
 @import "pages/index";
 @import "pages/dashboard";
+@import "pages/friends";
 
 .promise {
   display: none;
@@ -31,3 +32,6 @@
   display: inherit;
 }
 
+body {
+  background-color: #e0e0e0;
+}
