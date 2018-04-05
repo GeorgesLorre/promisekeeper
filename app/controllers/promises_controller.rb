@@ -7,7 +7,7 @@ class PromisesController < ApplicationController
     @promises = Promise.all
     @promise = Promise.new
     @user = current_user
-    @taggable_friends = user_signed_in? ? current_user.facebook_taggable_friends : []
+    @taggable_friends = user_signed_in? ? current_user.facebook_friends : []
   end
 
   def show
