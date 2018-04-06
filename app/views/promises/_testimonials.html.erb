@@ -10,22 +10,16 @@
          <div class="content">
 
           <p class="testimony title-card" ><%= ["I was always postponing my promises up to the point where no one cared. With Promise Keeper I got really motivated to make them happen", "I made the fullishness of promising a weekend party to my mates. They made me do it with Promise Keepr"].sample %>
-  </p>
-<span class="btn-expand read-more">
-    Read more
-  </span>
-<br>
+          </p>
+          <span class="btn-expand read-more">
+            Read more
+          </span>
+          <br>
 
-              <p class="testimony title-card" ><%= "Lorem ipsum dolor sit amet, consectur adipisicing elit" * 2 %>
-                </p>
-              <span class="btn-expand read-more">
-                  Read more
-                </span>
-              <br>
 
           <div class="writer">
-          <p> <%= p.title %> </p>
-          <p> <%= Date.today.strftime("%b %d, %Y") %> </p>
+            <p> <%= p.title %> </p>
+            <p> <%= Date.today.strftime("%b %d, %Y") %> </p>
           </div>
         </div>
       </div>
@@ -37,23 +31,23 @@
 <script>
   buttons  = document.getElementsByClassName("read-more");
   for( let i = 0; i < buttons.length; i++)  {
-      buttons[i].addEventListener('click', function(e) {
-          let parent = this.parentElement.getElementsByClassName("title-card")[0];
-          if (parent.classList.contains("testimony-expanded")){
-            this.innerHTML = "";
-            var but =  this;
-            parent.classList.remove("testimony-expanded");
-            parent.classList.add("testimony");
-            setTimeout(function(){ but.innerHTML = "Read more"; }, 1300 );
+    buttons[i].addEventListener('click', function(e) {
+      let parent = this.parentElement.getElementsByClassName("title-card")[0];
+      if (parent.classList.contains("testimony-expanded")){
+        this.innerHTML = "";
+        var but =  this;
+        parent.classList.remove("testimony-expanded");
+        parent.classList.add("testimony");
+        setTimeout(function(){ but.innerHTML = "Read more"; }, 1300 );
 
-          } else {
-            this.innerHTML = "";
-            var but =  this;
-            parent.classList.remove("testimony");
-            parent.classList.add("testimony-expanded");
-            setTimeout(function(){ but.innerHTML = "Close"; }, 1300 );
+      } else {
+        this.innerHTML = "";
+        var but =  this;
+        parent.classList.remove("testimony");
+        parent.classList.add("testimony-expanded");
+        setTimeout(function(){ but.innerHTML = "Close"; }, 1300 );
 
-          }
-     } ) }  ;
+      }
+    } ) }  ;
 
-</script>
+  </script>

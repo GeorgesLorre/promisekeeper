@@ -46,38 +46,6 @@
 </div>
 
 
-  const next = document.getElementsByClassName("next");
-  for(let i = 0; i < next.length; i++){
-    console.log(i);
-    next[i].addEventListener('click',(event) => {
-      event.preventDefault();
-      let form_div = next[i].parentElement;
-      form_div.classList.remove("active");
-      form_div.nextElementSibling.classList.add("active");
-      let answer  =  event.currentTarget.parentElement.getElementsByTagName("input")[0];
-      if(answer !== undefined && answer !== null && answer.value !== null){
-        let title = answer.value;
-        document.getElementById("hey").innerText = "When do you plan to " + title.toLowercase();
-      }
-    });
-  }
-
-  const previous = document.getElementsByClassName("previous");
-  for(let i = 0; i < previous.length; i++ ) {
-    previous[i].addEventListener('click', (event) => {
-      event.preventDefault();
-      let form_div = previous[i].parentElement;
-      form_div.classList.remove("active");
-      form_div.previousElementSibling.classList.add("active");
-    });
-  }
-
-  const glyph = document.getElementById("submit-glyph");
-  glyph.addEventListener('click', (event) => {
-   document.querySelector("#new_promise").submit();
- });
-
-</script>
 
 <%= render 'story' %>
 
