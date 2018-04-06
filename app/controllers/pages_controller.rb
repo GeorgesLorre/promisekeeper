@@ -10,6 +10,10 @@ class PagesController < ApplicationController
     @promise = Promise.new
   end
 
+  def friends
+    @promises = current_user.witnesses.sort_by(&:created_at).reverse
+  end
+
   def privacy
     render 'pages/privacy_policy'
   end
