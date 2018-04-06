@@ -10,6 +10,8 @@
           <%= image_tag wit.promise.user.facebook_picture_url, class: "card-user" %>
           <% if wit.promise.status == "Broken" %>
           <%= image_tag "broken.png", class: "status" %>
+          <% elsif wit.promise.status == "Pending" %>
+
           <% else %>
           <%= image_tag "completed.jpg", class: "status" %>
           <% end %>
