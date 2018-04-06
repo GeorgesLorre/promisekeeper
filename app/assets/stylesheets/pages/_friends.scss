@@ -1,12 +1,18 @@
 .friends-card {
   margin: 20px 20px 0px 20px;
   padding: 20px 20px 0px 20px;
+      background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 
-  background-position: center;
   color: white;
   position: relative;
   background-color: white;
   height: 75vh;
+}
+
+.glyphstats{
+  margin-right: 10px;
 }
 
 .friends-promise-photo {
@@ -57,6 +63,8 @@
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
+  position: absolute;
+  bottom: -110px;
 }
 
 .promise-stats span {

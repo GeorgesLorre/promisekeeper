@@ -9,11 +9,13 @@ class PagesController < ApplicationController
   def home
     @promise = Promise.new
   end
+
   def privacy
     render 'pages/privacy_policy'
   end
 
   def dashboard
-    @mypromises = current_user.promises
+    @mypromises = current_user.promises.sort_by(&:created_at)
+    @mypromises.reverse!
   end
 end
