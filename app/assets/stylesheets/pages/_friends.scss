@@ -57,7 +57,6 @@
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
-  text-shadow: 0px 0px #ff0000 !important;
 }
 
 .promise-stats span {
@@ -67,8 +66,13 @@
 
 .friends-count {
   margin-left: 35px;
+  display: flex;
 }
 
 img.status {
   width: 198px;
+}
+
+.deadline {
+  display: flex;
 }
