@@ -1,57 +1,50 @@
-
 <% content_for :for_head do %>
-  <%= render 'layouts/fbthumbnail' %>
+<%= render 'layouts/fbthumbnail' %>
 <% end %>
 
 
+<div class="index-banner" style="background-image: url('<%= cl_image_path("f7b67tkmst3tfgkppejn.jpg")%>'), linear-gradient(-225deg, rgba(0,101,168,0.9) 0%, rgba(0,36,61,0.6) 50%)">
+  <div id="previous" class="previous glyphicon glyphicon-chevron-up"></div>
 
-<div class="banner-home" style="background-image: url('<%= cl_image_path("f7b67tkmst3tfgkppejn.jpg")%>'), linear-gradient(-225deg, rgba(0,101,168,0.9) 0%, rgba(0,36,61,0.6) 50%)">
+  <%= simple_form_for @promise do |f| %>
 
-  <div class="banner-content">
-    <div id="new-promise">
-      <%= simple_form_for @promise do |f| %>
-      <div class="promise-title promise active">
-        <%=f.input :title, input_html: { class: "title-input" }, autofocus: true, label: false %>
-        <a href="#next" class="next glyphicon glyphicon-chevron-down"></a>
-      </div>
-      <div class="promise-calendar promise">
-        <a href="#previous" class="previous
-        glyphicon glyphicon-chevron-up"></a> <%=f.input :deadline, as: :string, label: false, placeholder: 'Date', input_html: { class: "datepicker title-input" } %> <a href="#next" class="next glyphicon glyphicon-chevron-down
-        "> </a>
-        <p id="hey"> </p>
-      </div>
-      <div class="promise-photo promise">
-        <a href="#previous" class="previous
-        glyphicon glyphicon-chevron-up"></a> <%=f.input :photo, label: false %>
-        <%= f.input :photo_cache, as: :hidden %> <a href="#next" class="next glyphicon glyphicon-chevron-down
-        "> </a>
-
-        <p> Upload a picture  </p>
-      </div>
-
-
-
-      <div class="promise-witness promise">
-        <a href="#previous" class="previous glyphicon glyphicon-chevron-up"></a>
-        <select name="promise[temp_witnesses][]" id="promise_temp_witnesses" class="form-control" multiple="multiple" style="width: 70vw">
-          <% @taggable_friends.each do |x| %>
-          <option value='<%= x["name"] %>'><%= x["name"] %></option>
-            <% end %>
-        </select>
-        <a class="glyphicon glyphicon-thumbs-up" id="submit-glyph"></a>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <p>Choose your witnesses</p>
-      </div>
-      <% end %>
-    </div>
+  <div class="promise-title promise form active" data-label="Declare Your Promise">
+    <%=f.input :title,  input_html: { class: "title-input" }, autofocus: true, label: false %>
   </div>
+
+  <div class="promise-description form promise" data-label="What will you do if you fail">
+    <%=f.input :description, input_html: { class: "title-input" }, autofocus: true, label: false %>
+  </div>
+
+  <div class="promise-calendar form promise" data-label="Set a Deadline">
+    <%=f.input :deadline, as: :string, label: false, placeholder: 'DD/MM/YY', input_html: { class: "datepicker title-input" } %>
+    <p id="hey"> </p>
+  </div>
+
+  <div class="promise-photo form promise" data-label="Add a Picture">
+    <%=f.input :photo, label: false, wrapper_html: { style: 'border: 0px;'}%>
+    <%= f.input :photo_cache, as: :hidden %>
+    <span class="glyphicon glyphicon-camera" id="camera"></span>
+
+  </div>
+
+  <div class="promise-witness form promise" data-label="Tag Your Witnesses">
+   <select name="promise[temp_witnesses][]" id="promise_temp_witnesses" class="form-control" multiple="multiple" style="width: 70vw">
+    <% @taggable_friends.each do |x| %>
+    <option value='<%= x["name"] %>'><%= x["name"] %></option>
+    <% end %>
+  </select>
 </div>
 
-<script>
+<% end %>
+
+<div id="next" class="next glyphicon glyphicon-chevron-down"></div>
+<a class="hideyourself glyphicon glyphicon-send" id="submit"></a>
+
+<p id="formlabel"> HEY YOU </p>
+
+</div>
+
 
   const next = document.getElementsByClassName("next");
   for(let i = 0; i < next.length; i++){
@@ -91,3 +84,90 @@
 <%= render 'testimonials' %>
 
 
+
+<script>
+  const photoinput = document.getElementById("promise_photo");
+  photoinput.style.display = "none";
+  photoinput.style.border = "0";
+
+  document.getElementById("camera").addEventListener("click", (event) => {
+    photoinput.click();
+  })
+
+
+  const next = document.getElementById("next");
+  const previous = document.getElementById("previous");
+  const submit = document.getElementById("submit");
+  const form = document.getElementById("new_promise");
+  const label = document.getElementById("formlabel");
+
+
+  const inputs = document.getElementsByClassName("form");
+  let looper = 0;
+
+  label.innerText = inputs[looper].dataset.label;
+
+
+  next.addEventListener('click', (event) =>{
+    event.preventDefault();
+    inputs[looper].classList.remove("active");
+    looper ++
+    inputs[looper].classList.add("active")
+    label.innerText = inputs[looper].dataset.label;
+    checkButtons();
+  })
+
+  previous.addEventListener('click', (event) =>{
+    event.preventDefault();
+    inputs[looper].classList.remove("active");
+    looper --
+    inputs[looper].classList.add("active")
+    label.innerText = inputs[looper].dataset.label;
+    checkButtons();
+
+  })
+
+  function checkButtons(){
+    form.style.border = "2px solid #307672";
+    form.style.backgroundColor = "white";
+    next.classList.remove("hideyourself");
+    previous.classList.remove("hideyourself");
+    submit.classList.add("hideyourself");
+
+      //start
+      if (looper === 0){
+        previous.classList.add("hideyourself");
+      }
+
+      else if (looper === 3){
+        form.style.border = "0px";
+        form.style.backgroundColor = "transparent";
+      }
+      // end
+      else if (looper === (inputs.length - 1 )){
+        next.classList.add("hideyourself");
+        const x = document.getElementsByClassName('select2-selection__rendered');
+        if(x[0].textContent.length > 0){
+          submit.classList.remove("hideyourself");
+        }
+        else{
+          submit.classList.add("hideyourself");
+        }
+      }
+    }
+
+    document.addEventListener("mouseover", checkButtons);
+
+    checkButtons();
+
+
+
+
+    const glyph = document.getElementById("submit");
+    glyph.addEventListener('click', (event) => {
+     document.querySelector("#new_promise").submit();
+
+   });
+
+
+ </script>

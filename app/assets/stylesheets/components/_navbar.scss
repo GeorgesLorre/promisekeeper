@@ -1,8 +1,9 @@
 /* Main navbar */
 .navbar-wagon {
-  background-color: transparent;
+  background-color: white;
   transition: 0.5s background-color ease;
   height: 70px;
+  width: 100vw;
   padding: 0px 30px;
   display: flex;
   align-items: center;
@@ -81,6 +82,7 @@ img.logo {
   border-top: 1px solid #E6E6E6;
 }
 
+
 .header-left {
   display: flex;
   align-items: center;
@@ -100,5 +102,9 @@ a .logotitle {
 .titlefont {
   font-family: "Caveat Brush", cursive;
   font-weight: lighter;
+
+.logo-navbar{
+  height: 80%;
+  margin-top: 6px;
 
 }

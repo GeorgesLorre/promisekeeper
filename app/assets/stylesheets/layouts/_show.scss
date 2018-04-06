@@ -1,13 +1,14 @@
 
 .card {
-  background-color: black;
-  font-family: "Ubuntu";
-  color: white;
+  background-color: white;
+  font-family: 'Ubuntu', sans-serif;
+  color: $green;
   border: 2px solid black;
   box-shadow: 0px 0px 6px 3px black 0 30px 20px -15px black;
   overflow: hidden;
   height: auto;
   padding-bottom: 30px;
+  margin: 10px;
 
   .promise-flipclock{
     display:flex;
@@ -29,6 +30,8 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    border-radius: 30px;
+    padding: 15px;
 
   }
 
@@ -38,23 +41,43 @@
       height: 75px;
       width: auto;
       border-radius: 50px;
-      border:1px solid grey;
+      border:2px solid white;
   }
 
   .show-madepromise-title{
     font-size: 14px;
     text-align: center;
     margin-top: 30px;
+    color: black;
   }
 
   .show-timeremaining-title{
     font-size: 14px;
     text-align: center;
     margin-top: 30px;
+    color: black;
+  }
+
+  .show-action-title{
+    font-size: 14px;
+    text-align: center;
+    margin-top: 30px;
+    color: black;
   }
 
   .promise-title{
-    border: 1px solid #EB942F;
+    border: 2px solid $green;
+    border-radius:20px;
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 4px;
+  }
+
+  .promise-action{
+    border: 2px solid $green;
     border-radius:20px;
     padding: 10px;
     font-size: 18px;
@@ -65,12 +88,12 @@
   }
 
 
-
   .show-witnesses-title{
     margin-top: 10px;
     text-align: center;
     font-size: 14px;
-    font-weight: bold;
+
+    color: black;
   }
 
   .show-avatars{
@@ -91,13 +114,13 @@
     .avatar-witness{
       height: 45px;
       width: auto;
-      border-radius: 50px;
+      border-radius: 10px;
       border:1px solid black;
     }
 
     .avatar-tempwitness{
       opacity: 0.8;
-      height: 45px;
+      height: 50px;
       width: auto;
       border-radius: 10px;
       border:1px solid grey;

@@ -1,0 +1,155 @@
+.index-banner{
+  font-family: 'Ubuntu', sans-serif;
+  color: grey;
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  box-shadow: inset 0 0 0 1000px rgba(255,255,255,.6);
+  display: grid;
+  grid-template-columns: 1fr 30vw 15vw 30vw 1fr;
+  grid-template-rows: 36vh 10vh 8vh 10vh 10vh 27vh;
+}
+
+.form-control{
+  color: $green;
+  font-size: 17px;
+}
+
+.form-control::-moz-placeholder {
+  color: $green;
+  font-family: 'Ubuntu', sans-serif;
+
+}
+.form-control:-ms-input-placeholder {
+  color: $green;
+  font-family: 'Ubuntu', sans-serif;
+
+}
+.form-control::-webkit-input-placeholder {
+  color: $green;
+  font-family: 'Ubuntu', sans-serif;
+
+}
+
+input[type=text].title-input {
+  background-color: transparent;
+  border: hidden;
+  box-shadow: none;
+  font-family: "Ubuntu";
+  font-size: 17px;
+  text-align: center;
+  width: 100%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  margin-top: 7px;
+}
+
+#promise_description{
+  background-color:transparent;
+  margin-top: 7px;
+  border: hidden;
+  box-shadow: none;
+  font-family: "Ubuntu";
+  font-size: 17px;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.select2-container--bootstrap .select2-selection--multiple {
+  background-color: transparent;
+
+  box-shadow: none;
+  border: none;
+  width: 100%;
+}
+
+
+.promise_temp_witnesses{
+  background-color: transparent;
+
+  border: hidden;
+  box-shadow: none;
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
+  padding: 0;
+}
+
+
+.input[type=submit] {
+  background-color: transparent;
+  width: 70vw;
+}
+
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+a{
+  text-decoration: none;
+}
+.promise{
+  display:flex;
+  align-self: center;
+}
+
+.new_promise{
+  font-size: 15px;
+  font-family: "Ubuntu";
+  border: 2px solid $green;
+  border-radius: 20px;
+  background-color: white;
+  color: black;
+  grid-row: 3;
+  grid-column: 2 /span 3;
+  text-align: center;
+}
+.glyphicon{
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.3em;
+  color: white;
+  text-decoration:none;
+  text-shadow: 0px 0px 5px black;
+  }
+
+#camera{
+  font-size: 40px;
+  text-shadow: 0px 0px 5px black;
+}
+
+#formlabel{
+  color: white;
+  grid-row: 5;
+  grid-column: 2 / span 3;
+  display: flex;
+  justify-content: space-around;
+  align-self: center;
+  margin-bottom: 0px;
+  text-shadow: 0px 0px 5px black;
+}
+
+#next{
+  grid-row: 4;
+  grid-column: 3;
+  align-self: flex-end;
+
+}
+#previous{
+  grid-row: 2;
+  grid-column: 3;
+}
+
+#submit{
+  grid-row: 4;
+  grid-column: 3;
+  align-self: flex-end;
+  font-size: 1.7em;
+}
+
+.hideyourself{
+  display: none;
+}

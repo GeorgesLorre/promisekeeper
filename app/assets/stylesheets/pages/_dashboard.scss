@@ -1,3 +1,62 @@
+.promise-photo {
+  height: 300px;
+  width: 100%;
+  background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+  opacity: .8;
+  border-radius: 6px;
+}
+
+.icons {
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  color: #ECECEB;
+  position: relative;
+}
+
+.meg {
+  background-color: white;
+  padding: 50px;
+  height: 450px;
+  border-radius: 5px;
+  border: 3px solid gray;
+}
+
+.card-dashboard {
+  padding: 50px;
+  height: 300px;
+  border-radius: 2px;
+}
+
+.body {
+  background-color: #FEFFFE;
+}
+.container-2 {
+  position: relative;
+  height: 200px;
+}
+.promise-status {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+
+
+.tag:hover {
+  color: $tag;
+  position: relative;
+}
+
+
+.check:hover {
+  color: $check;
+  position: relative;
+}
+
+.quit:hover {
+  color: $quit;
+  position: relative;
+}
 // .promise-photo {
 //   height: 300px;
 //   width: 100%;
@@ -59,4 +118,80 @@
 //   position: relative;
 // }
 
+
+.tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.icons:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.card-body {
+  position: relative;
+}
+.more{
+  position: absolute;
+  right: 150px;
+  bottom: 106px;
+  max-width:300px;
+  max-height:300px;
+  background-color: #327B97;
+  border-radius: 3px;
+  opacity: 0.7;
+  transition:2s;
+  height: 100px;
+  width: 200px;
+}
+.more:hover {
+  opacity:0;
+}
+
+.stamp {
+  position: absolute;
+  right: 2px;
+  top: 10px;
+}
+.card-content {
+  position: absolute;
+  bottom: 60px;
+  color: white;
+  opacity: 0;
+  transition: 2s;
+  max-width: 60vh;
+}
+.card-content:hover {
+
+
+  opacity: 0.9;
+}
+.card-content:hover .more{
+  opacity:0;
+    /* different css */
+}
+
+.card-body {
+  width: 400px;
+  height: 300px;
+  transition: width 3s;
+}
+
+.card-body:hover {
+  width: 170vh
+
+}
 

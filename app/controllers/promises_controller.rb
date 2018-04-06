@@ -7,7 +7,7 @@ class PromisesController < ApplicationController
     @promises = Promise.all
     @promise = Promise.new
     @user = current_user
-    @taggable_friends = user_signed_in? ? current_user.facebook_taggable_friends : []
+    @taggable_friends = user_signed_in? ? current_user.facebook_friends : []
   end
 
   def show
@@ -26,18 +26,14 @@ class PromisesController < ApplicationController
 
     if !tagged_friends.nil?
       if @promise.save!
-        holder = @promise.user.facebook_taggable_friends.select{ |x| tagged_friends.include?(x["name"]) }
+        holder = @promise.user.facebook_friends.select{ |x| tagged_friends.include?(x["name"]) }
+
         holder.each do |friend|
-          if User.witness_is_user(friend["name"]).empty?
-            wi = TempWitness.new(temp_witness_fields(friend))
-            wi.promise = @promise
-            wi.save!
-          else
             wi = Witness.new
-            wi.user = User.witness_is_user(friend["name"]).first
+            wi.user = User.find_by(name: friend["name"])
+
             wi.promise = @promise
             wi.save!
-          end
         end
         # PromiseMailer.creation_confirmation(@promise).deliver_now
         redirect_to promise_path(@promise)
