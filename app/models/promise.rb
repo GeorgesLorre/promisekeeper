@@ -4,11 +4,16 @@ class Promise < ApplicationRecord
   has_many :witnesses, dependent: :destroy
   has_many :users, through: :witnesses
   accepts_nested_attributes_for :users
-  validates :status, inclusion: {in: ["Broken", "Completed"]}
+  validates :status, inclusion: {in: ["Broken", "Completed", "Pending"]}
 
   mount_uploader :photo, PhotoUploader
 
+  before_validation :default_values
   after_validation :checkphoto
+
+  def default_values
+    self.status = self.status || "Pending"
+  end
 
   def checkphoto
     if self.photo.blank?
