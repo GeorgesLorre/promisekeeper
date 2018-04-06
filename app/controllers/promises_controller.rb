@@ -66,6 +66,7 @@ class PromisesController < ApplicationController
 
   def update
     @promise.update(promise_params)
+    redirect_to friends_path
   end
 
   def destroy
@@ -79,7 +80,7 @@ class PromisesController < ApplicationController
   end
 
   def promise_params
-    params.require(:promise).permit(:title, :description, :deadline, :photo)
+    params.require(:promise).permit(:title, :description, :deadline, :photo, :status)
   end
 
   def temp_witness_fields(i)

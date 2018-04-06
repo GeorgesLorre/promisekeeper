@@ -1,48 +1,67 @@
 <div class="container text-center">
   <div class="row">
     <%current_user.witnesses.each do |wit| %>
-      <div class="col-xs-12 col-md-6 ">
-    <div class="friends-card">
+    <div class="col-xs-12 col-md-6 ">
+      <div class="friends-card">
 
         <div class="friend-photo">
          <div  style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),  url('<%= cl_image_path wit.promise.photo %>'); height: 40vh; " class= friends-promise-photo>
 
-      <%= image_tag wit.promise.user.facebook_picture_url, class: "card-user" %>
+          <%= image_tag wit.promise.user.facebook_picture_url, class: "card-user" %>
+          <% if wit.promise.status == "Broken" %>
+          <%= image_tag "broken.png", class: "status" %>
+          <% else %>
+          <%= image_tag "completed.jpg", class: "status" %>
+          <% end %>
 
-          </div>
-       </div>
-
-       <div class="row">
-         <div class="col-xs-12 col-md-6">
-          <div class="card-description">
-            <h3><%= wit.promise.title.capitalize %></h3>
-            <p>Promised by <%= wit.promise.user.name %> </p>
-          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-xs-12 col-md-12">
-          <div class="promise-stats">
-            <div class="deadline">
-              <span class="glyphicon glyphicon-time"> in <%= distance_of_time_in_words(wit.promise.deadline, Date.today) %></span>
-            </div>
 
-            <div class="friends-count">
-              <span class="glyphicon glyphicon-user">
-               <%= wit.promise.witnesses.count %> witnesses
-             </span>
-           </div>
+      <div class="row">
+       <div class="col-xs-12 col-md-6">
+        <div class="card-description">
+          <h3><%= wit.promise.title.capitalize %></h3>
+          <p>Promised by <%= wit.promise.user.name %> </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+     <div class="col-xs-12 col-md-6">
+      <div class="card-status form-inline">
+        <% if wit.promise.status.blank? %>
+        <%= simple_form_for wit.promise, wrapper: :inline_form do |f| %>
+        <div class="form-group">
+          <%= f.input :status, collection: ["Broken", "Completed"], placeholder: "Promise status" %></div>
+          <div class="form-group">
+            <%= f.button :submit, "Status", class: "btn btn-danger" %>
+          </div>
+          <% end %>
+
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-12">
+        <div class="promise-stats">
+          <div class="deadline">
+            <span class="glyphicon glyphicon-time"> in <%= distance_of_time_in_words(wit.promise.deadline, Date.today) %></span>
+          </div>
+          <div class="friends-count">
+            <span class="glyphicon glyphicon-user">
+             <%= wit.promise.witnesses.count %> witnesses
+           </span>
          </div>
        </div>
      </div>
-
-  </div>
+   </div>
+ </div>
 </div>
 </div>
-
 <% end %>
 </div>
 
-<!--   <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
--->
+
 
