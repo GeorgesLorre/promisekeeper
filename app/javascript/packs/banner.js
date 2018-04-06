@@ -1,16 +1,17 @@
 import Typed from 'typed.js';
 
 function loadText(){
-
+  if (document.getElementsByClassName('title-input').length > 0 ){
   new Typed ('.title-input', {
-    strings: ["I PROMISE TO ...", "I PROMISE TO CLEAN MY ROOM", "I PROMISE TO STOP STARING", "I PROMISE TO PLAY THE VIOLIN", "I PROMISE TO COMMIT MORE", "YOUR TURN"],
-    typeSpeed: 30,
+    strings: ["I promise to ...", "I promise to clean my room", "I promise to stop staring", "I promise to play the violin", "I promise to commit more", "your turn"],
+    typeSpeed: 50,
     bindInputFocusEvents: true,
     attr: 'placeholder',
     smartBackspace: true,
     loop: true,
-  });
 
+  });
+  }
 }
 
 
