@@ -4,6 +4,7 @@ class Promise < ApplicationRecord
   has_many :witnesses, dependent: :destroy
   has_many :users, through: :witnesses
   accepts_nested_attributes_for :users
+  validates :status, inclusion: {in: ["Broken", "Completed"]}
 
   mount_uploader :photo, PhotoUploader
 
